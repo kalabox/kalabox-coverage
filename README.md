@@ -1,2 +1,3 @@
-# kalabox-coverage
-Contains reports on code coverage for our projects
+# Kalabox Code Coverage
+
+Contains reports on code coverage for our projects, NBD
