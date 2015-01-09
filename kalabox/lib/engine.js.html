@@ -195,20 +195,20 @@
     </style>
 </head>
 <body>
-<div class="header medium">
+<div class="header low">
     <h1>Code coverage report for <span class="entity">lib/engine.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">64.29% <small>(9 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">47.22% <small>(17 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">64.29% <small>(9 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">47.22% <small>(17 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -251,7 +251,109 @@
 33
 34
 35
-36</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -259,14 +361,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -275,6 +381,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -285,19 +398,112 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
-&nbsp;
-/*
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Kalabox engine (docker) module.
+ * @module engine
  */
 &nbsp;
+'use strict';
+&nbsp;
 var core = require('./core.js');
+var docker = require('./engine/docker.js');
 var Dockerode = require('dockerode');
 &nbsp;
+//@todo: remove
 var container = require('./engine/container.js');
 exports.container = container;
 &nbsp;
+// @todo: remove
 var image = require('./engine/image.js');
 exports.image = image;
 &nbsp;
@@ -306,10 +512,18 @@ var state = {
   dockerConfig: null
 };
 &nbsp;
+// @todo: Remove in favor of using the init function.
 exports.getState = <span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >  return state;</span>
 };
 &nbsp;
+/**
+ * Initializes kalabox engine.
+ * @arg {string} configFile - Kalabox config file to initialize with.
+ * @example
+ * var globalConfig = kbox.core.config.getGlobalConfig();
+ * kbox.engine.init(globalConfig);
+ */
 exports.init = <span class="fstat-no" title="function not covered" >function(globalConfig) {</span>
 <span class="cstat-no" title="statement not covered" >  core.env.ifElseLinux(</span>
 <span class="fstat-no" title="function not covered" >    function() {</span>
@@ -320,13 +534,102 @@ exports.init = <span class="fstat-no" title="function not covered" >function(glo
     }
   );
 <span class="cstat-no" title="statement not covered" >  state.docker = new Dockerode(state.dockerConfig);</span>
+<span class="cstat-no" title="statement not covered" >  docker.init(state.docker);</span>
+};
+&nbsp;
+/**
+ * Lists installed containers.
+ * @arg {string} appName [optional] - App name to filter containers by.
+ * @arg {function} callback - callback(err, containers) - A callback called when engine query completes.
+ * @example
+ * kbox.engine.list(function(err, containers) {
+ *   for (var i = 0; i &lt; containers.length; ++i) {
+ *     console.log(containers[i].name);
+ *   }
+ * });
+ */
+exports.list = <span class="fstat-no" title="function not covered" >function(appName, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  docker.list(appName, callback);</span>
+};
+&nbsp;
+/**
+ * Inspects a container and returns details.
+ * @arg {string} containerId - Id of the container to inspect.
+ * @arg {function} callback - callback(err, data) - Callback called when the container has been inspected.
+ */
+exports.inspect = <span class="fstat-no" title="function not covered" >function(cid, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var container = docker.get(cid);</span>
+<span class="cstat-no" title="statement not covered" >  docker.inspect(container, callback);</span>
+};
+&nbsp;
+/**
+ * Creates a container.
+ * @arg {object} startOptions [optional] - Object containing the create options for the container.
+ * @arg {function} callback - callback(err, data) - Callback called when the container has been created.
+ */
+// @todo: find a good way to document createOptions, and possibly not make them docker specific.
+exports.create = <span class="fstat-no" title="function not covered" >function(createOptions, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  docker.create(createOptions, callback);</span>
+};
+&nbsp;
+/**
+ * Starts a container.
+ * @arg {string} containerId - Id of the container to start.
+ * @arg {object} startOptions [optional] - Object containing the start options for the container.
+ * @arg {function} callback - callback(err, data) - Callback called when the container has been started.
+ */
+// @todo: find a good way to document startOptions, and possibly not make them docker specific.
+exports.start = <span class="fstat-no" title="function not covered" >function(cid, startOptions, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof startOptions === 'function' &amp;&amp; callback === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    callback = startOptions;</span>
+<span class="cstat-no" title="statement not covered" >    startOptions = null;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  docker.start(cid, startOptions, callback);</span>
+};
+&nbsp;
+/**
+ * Stops a container.
+ * @arg {string} containerId - Id of the container to stop.
+ * @arg {function} callback - callback(err, data) - A callback called when the container has been stopped.
+ * @example
+ * kbox.engine.stop(containerId, function(err, data) {
+ *   if (err) {
+ *     throw err;
+ *   }
+ *   console.log('Container stopped!');
+ * });
+ */
+exports.stop = <span class="fstat-no" title="function not covered" >function(cid, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  docker.stop(cid, callback);</span>
+};
+&nbsp;
+/**
+ * Removes a container from the engine.
+ * @arg {string} containerId - Id of the container to remove.
+ * @arg {function} callback - callback(err, data) - A callback called when the container has been removed.
+ */
+exports.remove = <span class="fstat-no" title="function not covered" >function(cid, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  docker.remove(cid, callback);</span>
+};
+&nbsp;
+/**
+ * Builds the image for a container.
+ * @arg {string} image - Name of the image to build.
+ * @arg {function} callback - callback(err, data) - Callback called when the image has been built.
+ */
+exports.build = <span class="fstat-no" title="function not covered" >function(image, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (image.build) {</span>
+<span class="cstat-no" title="statement not covered" >    docker.build(image, callback);</span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    docker.pull(image, callback);</span>
+  }
 };
 &nbsp;</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jan 07 2015 19:52:59 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 09 2015 21:36:03 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../prettify.js"></script>

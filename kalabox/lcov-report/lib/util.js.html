@@ -195,20 +195,20 @@
     </style>
 </head>
 <body>
-<div class="header high">
+<div class="header medium">
     <h1>Code coverage report for <span class="entity">lib/util.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">85.33% <small>(64 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">73.86% <small>(65 / 88)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">75% <small>(12 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">54.55% <small>(12 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">84.21% <small>(16 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">72.73% <small>(16 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">85.14% <small>(63 / 74)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">73.56% <small>(64 / 87)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -360,7 +360,30 @@
 142
 143
 144
-145</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -434,6 +457,28 @@
 <span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">7</span>
 <span class="cline-any cline-yes">22</span>
 <span class="cline-any cline-yes">3</span>
@@ -498,6 +543,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -577,6 +623,28 @@ exports.longname = {
 &nbsp;
 var helperIdent = function(x) { return x; };
 &nbsp;
+var helperMapAsync = <span class="fstat-no" title="function not covered" >function(elts, callback, done) {</span>
+<span class="cstat-no" title="statement not covered" >  var rec = <span class="fstat-no" title="function not covered" >function(elts, errs) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (elts.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >      if (errs.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        done(null);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        done(errs);</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      var hd = elts[0];</span>
+<span class="cstat-no" title="statement not covered" >      var tl = elts.slice(1);</span>
+<span class="cstat-no" title="statement not covered" >      callback(hd, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (err !== null) {</span>
+<span class="cstat-no" title="statement not covered" >          errs.push(err);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return rec(tl, errs);</span>
+      });
+    }
+  };
+<span class="cstat-no" title="statement not covered" >  rec(elts, []);</span>
+};
+&nbsp;
 var helperFindMap = function(elts, filter, map) {
   var rec = function(elts) {
     if (elts.length === 0)  {
@@ -646,14 +714,15 @@ exports.helpers = {
   filterMap: helperFilterMap,
   filterMap2: helperFilterMap2,
   find: helperFind,
-  findMap: helperFindMap
+  findMap: helperFindMap,
+  mapAsync: helperMapAsync
 };
 &nbsp;</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jan 07 2015 19:52:59 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 09 2015 21:36:03 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../prettify.js"></script>

@@ -199,16 +199,16 @@
     <h1>Code coverage report for <span class="entity">lib/core/plugin.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">42.31% <small>(22 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">42.11% <small>(24 / 57)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">0% <small>(0 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">40% <small>(4 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">33.33% <small>(4 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">42.31% <small>(22 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">42.11% <small>(24 / 57)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -330,7 +330,19 @@
 112
 113
 114
-115</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -432,11 +444,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -474,7 +498,7 @@ var _util = require('../util.js');
  *   // Add plugin code here.
  * });
  */
-var init = function(plugin, overrides, cb) {
+var initPlugin = function(plugin, overrides, cb) {
   deps.override(overrides, function(done) {
     try {
       deps.call(cb);
@@ -485,7 +509,7 @@ var init = function(plugin, overrides, cb) {
     }
   });
 };
-exports.init = init;
+exports.initPlugin = initPlugin;
 &nbsp;
 var loadRawPlugin = <span class="fstat-no" title="function not covered" >function(pluginName, pluginDirs) {</span>
 <span class="cstat-no" title="statement not covered" >  pluginDirs = pluginDirs.map(<span class="fstat-no" title="function not covered" >function(dir) {</span></span>
@@ -522,7 +546,7 @@ exports.loadIfUsesApp = <span class="fstat-no" title="function not covered" >fun
           appConfig: appConfig,
           plugin: pluginName
         };
-<span class="cstat-no" title="statement not covered" >        return init(pluginName, overrides, rawPlugin);</span>
+<span class="cstat-no" title="statement not covered" >        return initPlugin(pluginName, overrides, rawPlugin);</span>
       });
     } else {
 <span class="cstat-no" title="statement not covered" >      return null;</span>
@@ -530,7 +554,7 @@ exports.loadIfUsesApp = <span class="fstat-no" title="function not covered" >fun
   }
 };
 &nbsp;
-exports.loadIfDoesNotUseApp = <span class="fstat-no" title="function not covered" >function(pluginName, pluginDirs) {</span>
+var loadIfDoesNotUseApp = <span class="fstat-no" title="function not covered" >function(pluginName, pluginDirs) {</span>
 <span class="cstat-no" title="statement not covered" >  var rawPlugin = loadRawPlugin(pluginName, pluginDirs);</span>
 <span class="cstat-no" title="statement not covered" >  if (rawPlugin === null) {</span>
 <span class="cstat-no" title="statement not covered" >    return null;</span>
@@ -540,12 +564,13 @@ exports.loadIfDoesNotUseApp = <span class="fstat-no" title="function not covered
 <span class="cstat-no" title="statement not covered" >      var overrides = {</span>
         plugin: pluginName
       };
-<span class="cstat-no" title="statement not covered" >      return init(pluginName, overrides, rawPlugin);</span>
+<span class="cstat-no" title="statement not covered" >      return initPlugin(pluginName, overrides, rawPlugin);</span>
     } else {
 <span class="cstat-no" title="statement not covered" >      return null;</span>
     }
   }
 };
+exports.loadIfDoesNotUseApp = loadIfDoesNotUseApp;
 &nbsp;
 exports.load = <span class="fstat-no" title="function not covered" >function(pluginName, pluginDirs) {</span>
 <span class="cstat-no" title="statement not covered" >  var rawPlugin = loadRawPlugin(pluginName, pluginDirs);</span>
@@ -553,17 +578,28 @@ exports.load = <span class="fstat-no" title="function not covered" >function(plu
 <span class="cstat-no" title="statement not covered" >    var overrides = {</span>
       plugin: pluginName
     };
-<span class="cstat-no" title="statement not covered" >    return init(pluginName, overrides, rawPlugin);</span>
+<span class="cstat-no" title="statement not covered" >    return initPlugin(pluginName, overrides, rawPlugin);</span>
   } else {
 <span class="cstat-no" title="statement not covered" >    return null;</span>
   }
+};
+&nbsp;
+exports.init = <span class="fstat-no" title="function not covered" >function(globalConfig) {</span>
+<span class="cstat-no" title="statement not covered" >  var pluginDirs = [</span>
+    globalConfig.srcRoot,
+    globalConfig.kalaboxRoot
+  ];
+<span class="cstat-no" title="statement not covered" >  globalConfig.globalPlugins.forEach(<span class="fstat-no" title="function not covered" >function(pluginName) {</span></span>
+    // @todo: maybe store these global plugins somewhere?
+<span class="cstat-no" title="statement not covered" >    loadIfDoesNotUseApp(pluginName, pluginDirs);</span>
+  });
 };
 &nbsp;</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jan 07 2015 19:52:59 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 09 2015 21:36:03 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../../prettify.js"></script>
