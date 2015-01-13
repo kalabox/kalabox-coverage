@@ -199,16 +199,16 @@
     <h1>Code coverage report for <span class="entity">lib/app.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">16.57% <small>(29 / 175)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">15.51% <small>(29 / 187)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">0% <small>(0 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">0% <small>(0 / 61)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 65)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">16.67% <small>(29 / 174)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">15.59% <small>(29 / 186)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -550,7 +550,32 @@
 332
 333
 334
-335</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -737,6 +762,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -746,6 +776,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -794,6 +826,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -823,6 +861,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -863,6 +907,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1064,23 +1114,30 @@ var getInstallOptions = <span class="fstat-no" title="function not covered" >fun
 &nbsp;
 var installComponent = <span class="fstat-no" title="function not covered" >function(events, app, component, callback) {</span>
 <span class="cstat-no" title="statement not covered" >  events.emit('pre-install-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >    engine.build(component.image, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.services.init(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >      if (err) {</span>
 <span class="cstat-no" title="statement not covered" >        callback(err);</span>
       } else {
-<span class="cstat-no" title="statement not covered" >        var installOptions = getInstallOptions(app, component);</span>
-<span class="cstat-no" title="statement not covered" >        console.log('installOptions: ' + JSON.stringify(installOptions));</span>
-<span class="cstat-no" title="statement not covered" >        engine.create(installOptions, <span class="fstat-no" title="function not covered" >function(err, container) {</span></span>
+<span class="cstat-no" title="statement not covered" >        engine.build(component.image, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >          if (err) {</span>
-<span class="cstat-no" title="statement not covered" >            throw err;</span>
-          }
-<span class="cstat-no" title="statement not covered" >          if (container) {</span>
-<span class="cstat-no" title="statement not covered" >            component.containerId = container.cid;</span>
-<span class="cstat-no" title="statement not covered" >            fs.writeFileSync(path.resolve(component.containerIdFile), container.cid);</span>
-          }
-<span class="cstat-no" title="statement not covered" >          events.emit('post-install-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
 <span class="cstat-no" title="statement not covered" >            callback(err);</span>
-          });
+          } else {
+<span class="cstat-no" title="statement not covered" >            var installOptions = getInstallOptions(app, component);</span>
+            // @todo: debug remove
+<span class="cstat-no" title="statement not covered" >            console.log('installOptions: ' + JSON.stringify(installOptions));</span>
+<span class="cstat-no" title="statement not covered" >            engine.create(installOptions, <span class="fstat-no" title="function not covered" >function(err, container) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                throw err;</span>
+              }
+<span class="cstat-no" title="statement not covered" >              if (container) {</span>
+<span class="cstat-no" title="statement not covered" >                component.containerId = container.cid;</span>
+<span class="cstat-no" title="statement not covered" >                fs.writeFileSync(path.resolve(component.containerIdFile), container.cid);</span>
+              }
+<span class="cstat-no" title="statement not covered" >              events.emit('post-install-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                callback(err);</span>
+              });
+            });
+          }
         });
       }
     });
@@ -1124,10 +1181,16 @@ var getStartOptions = <span class="fstat-no" title="function not covered" >funct
 var startComponent = <span class="fstat-no" title="function not covered" >function(events, app, component, callback) {</span>
 <span class="cstat-no" title="statement not covered" >  var opts = getStartOptions(app, component);</span>
 <span class="cstat-no" title="statement not covered" >  events.emit('pre-start-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >    engine.start(component.containerId, opts, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
-<span class="cstat-no" title="statement not covered" >      events.emit('post-start-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.services.init(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
 <span class="cstat-no" title="statement not covered" >        callback(err);</span>
-      });
+      } else {
+<span class="cstat-no" title="statement not covered" >        engine.start(component.containerId, opts, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >          events.emit('post-start-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            callback(err);</span>
+          });
+        });
+      }
     });
   });
 };
@@ -1153,10 +1216,16 @@ exports.start = start;
 &nbsp;
 var stopComponent = <span class="fstat-no" title="function not covered" >function(events, component, callback) {</span>
 <span class="cstat-no" title="statement not covered" >  events.emit('pre-stop-component', <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >    engine.stop(component.containerId, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
-<span class="cstat-no" title="statement not covered" >      events.emit('post-stop-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.services.init(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
 <span class="cstat-no" title="statement not covered" >        callback(err);</span>
-      });
+      } else {
+<span class="cstat-no" title="statement not covered" >        engine.stop(component.containerId, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >          events.emit('post-stop-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            callback(err);</span>
+          });
+        });
+      }
     });
   });
 };
@@ -1191,13 +1260,19 @@ exports.restart = <span class="fstat-no" title="function not covered" >function(
 &nbsp;
 var uninstallComponent = <span class="fstat-no" title="function not covered" >function(events, component, callback) {</span>
 <span class="cstat-no" title="statement not covered" >  events.emit('pre-uninstall-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >    engine.remove(component.containerId, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
-<span class="cstat-no" title="statement not covered" >      if (!err) {</span>
-<span class="cstat-no" title="statement not covered" >        fs.unlinkSync(component.containerIdFile);</span>
-      }
-<span class="cstat-no" title="statement not covered" >      events.emit('post-uninstall-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.services.init(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
 <span class="cstat-no" title="statement not covered" >        callback(err);</span>
-      });
+      } else {
+<span class="cstat-no" title="statement not covered" >        engine.remove(component.containerId, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (!err) {</span>
+<span class="cstat-no" title="statement not covered" >            fs.unlinkSync(component.containerIdFile);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          events.emit('post-uninstall-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            callback(err);</span>
+          });
+        });
+      }
     });
   });
 };
@@ -1223,7 +1298,7 @@ exports.uninstall = <span class="fstat-no" title="function not covered" >functio
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jan 12 2015 23:59:38 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 13 2015 02:27:50 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../prettify.js"></script>
