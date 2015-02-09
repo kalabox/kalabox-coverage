@@ -693,11 +693,7 @@
 475
 476
 477
-478
-479
-480
-481
-482</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+478</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -926,10 +922,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -984,10 +980,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1403,15 +1395,15 @@ var getInstallOptions = <span class="fstat-no" title="function not covered" >fun
 };
 &nbsp;
 var installComponent = <span class="fstat-no" title="function not covered" >function(events, app, component, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  component.installOptions = getInstallOptions(app, component);</span>
+<span class="cstat-no" title="statement not covered" >  console.log('installOptions: ' + JSON.stringify(component.installOptions));</span>
 <span class="cstat-no" title="statement not covered" >  events.emit('pre-install-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
 <span class="cstat-no" title="statement not covered" >    engine.build(component.image, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >      if (err) {</span>
 <span class="cstat-no" title="statement not covered" >        callback(err);</span>
       } else {
-<span class="cstat-no" title="statement not covered" >        var installOptions = getInstallOptions(app, component);</span>
         // @todo: debug remove
-<span class="cstat-no" title="statement not covered" >        console.log('installOptions: ' + JSON.stringify(installOptions));</span>
-<span class="cstat-no" title="statement not covered" >        engine.create(installOptions, <span class="fstat-no" title="function not covered" >function(err, container) {</span></span>
+<span class="cstat-no" title="statement not covered" >        engine.create(component.installOptions, <span class="fstat-no" title="function not covered" >function(err, container) {</span></span>
 <span class="cstat-no" title="statement not covered" >          if (err) {</span>
 <span class="cstat-no" title="statement not covered" >            callback(err);</span>
           } else {
@@ -1465,12 +1457,8 @@ exports.install = <span class="fstat-no" title="function not covered" >function(
 &nbsp;
 var getStartOptions = <span class="fstat-no" title="function not covered" >function(app, component, opts) {</span>
 <span class="cstat-no" title="statement not covered" >  var startOpts = {</span>
-    Hostname: component.hostname,
     PublishAllPorts: true,
-    Binds: [
-      app.root + ':/src:rw'
-    ],
-    Env: ['APPNAME=' + app.name, 'APPDOMAIN=' + app.domain]
+    Binds: [app.root + ':/src:rw']
   };
 <span class="cstat-no" title="statement not covered" >  if (opts) {</span>
 <span class="cstat-no" title="statement not covered" >    for (var key in opts) {</span>
@@ -1481,9 +1469,9 @@ var getStartOptions = <span class="fstat-no" title="function not covered" >funct
 };
 &nbsp;
 var startComponent = <span class="fstat-no" title="function not covered" >function(events, app, component, callback) {</span>
-<span class="cstat-no" title="statement not covered" >  var opts = getStartOptions(app, component);</span>
+<span class="cstat-no" title="statement not covered" >  component.opts = getStartOptions(app, component);</span>
 <span class="cstat-no" title="statement not covered" >  events.emit('pre-start-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >    engine.start(component.containerId, opts, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.start(component.containerId, component.opts, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >      events.emit('post-start-component', component, <span class="fstat-no" title="function not covered" >function() {</span></span>
 <span class="cstat-no" title="statement not covered" >        callback(err);</span>
       });
@@ -1664,7 +1652,7 @@ exports.uninstall = <span class="fstat-no" title="function not covered" >functio
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Feb 09 2015 22:38:43 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Feb 09 2015 23:58:05 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../prettify.js"></script>
