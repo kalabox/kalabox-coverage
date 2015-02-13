@@ -199,16 +199,16 @@
     <h1>Code coverage report for <span class="entity">lib/engine/provider/b2d.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">23.85% <small>(31 / 130)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">25% <small>(31 / 124)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">0% <small>(0 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">0% <small>(0 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">23.85% <small>(31 / 130)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">25% <small>(31 / 124)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -443,15 +443,7 @@
 225
 226
 227
-228
-229
-230
-231
-232
-233
-234
-235
-236</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+228</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -471,6 +463,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -662,18 +658,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -708,12 +692,16 @@ var execShellCommand = <span class="fstat-no" title="function not covered" >func
   });
 };
 &nbsp;
-var getProfile = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >  return path.join(core.deps.lookup('config').sysConfRoot, 'b2d.profile');</span>
+var getDir = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return core.deps.lookup('config').sysProviderRoot;</span>
 };
 &nbsp;
-var setProfile = <span class="fstat-no" title="function not covered" >function(callback) {</span>
-<span class="cstat-no" title="statement not covered" >  core.env.setB2dProf(getProfile());</span>
+var getProfile = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return path.join(getDir(), 'profile');</span>
+};
+&nbsp;
+var setDir = <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >  core.env.setEnv('BOOT2DOCKER_DIR', getDir());</span>
 <span class="cstat-no" title="statement not covered" >  callback();</span>
 };
 &nbsp;
@@ -741,7 +729,7 @@ var parseProfile = <span class="fstat-no" title="function not covered" >function
 &nbsp;
 var execCommand = <span class="fstat-no" title="function not covered" >function(cmd, callback) {</span>
   // @todo: eventually we probably want this to handle options?
-<span class="cstat-no" title="statement not covered" >  setProfile(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >  setDir(<span class="fstat-no" title="function not covered" >function() {</span></span>
 <span class="cstat-no" title="statement not covered" >    execShellCommand([B2D_EXECUTABLE, cmd].join(' '), callback);</span>
   });
 };
@@ -896,17 +884,6 @@ var getServerIps = <span class="fstat-no" title="function not covered" >function
   });
 };
 &nbsp;
-var prepareInstall = <span class="fstat-no" title="function not covered" >function(callback) {</span>
-<span class="cstat-no" title="statement not covered" >  parseProfile(<span class="fstat-no" title="function not covered" >function(profile) {</span></span>
-<span class="cstat-no" title="statement not covered" >    var iso = path.resolve(profile.ISO.replace(/"/g, ''));</span>
-<span class="cstat-no" title="statement not covered" >    var isoThere = fs.existsSync(iso);</span>
-<span class="cstat-no" title="statement not covered" >    if (isoThere) {</span>
-<span class="cstat-no" title="statement not covered" >      fs.unlinkSync(iso);</span>
-    }
-<span class="cstat-no" title="statement not covered" >    callback(null);</span>
-  });
-};
-&nbsp;
 exports.init = <span class="fstat-no" title="function not covered" >function(intf) {</span>
 <span class="cstat-no" title="statement not covered" >  intf.up = up;</span>
 <span class="cstat-no" title="statement not covered" >  intf.down = down;</span>
@@ -915,7 +892,6 @@ exports.init = <span class="fstat-no" title="function not covered" >function(int
 <span class="cstat-no" title="statement not covered" >  intf.isDown = isDown;</span>
 <span class="cstat-no" title="statement not covered" >  intf.hasTasks = hasTasks;</span>
 <span class="cstat-no" title="statement not covered" >  intf.engineConfig = getEngineConfig;</span>
-<span class="cstat-no" title="statement not covered" >  intf.prepareInstall = prepareInstall;</span>
 <span class="cstat-no" title="statement not covered" >  intf.getServerIps = getServerIps;</span>
 <span class="cstat-no" title="statement not covered" >  return intf;</span>
 };
@@ -926,7 +902,7 @@ exports.name = 'boot2docker';
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 12 2015 04:44:36 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 13 2015 03:28:26 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../../../prettify.js"></script>
