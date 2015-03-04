@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/core/config.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../prettify.css">
+
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">lib/core/config.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">92% <small>(69 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">62.5% <small>(10 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">90.91% <small>(10 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">92% <small>(69 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/core/</a> &#187; config.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">144</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">151</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">148</span>
+<span class="cline-any cline-yes">148</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Module for global and app configs.
+ * @module kbox.core.config
+ */
+&nbsp;
+'use strict';
+&nbsp;
+var path = require('path');
+var fs = require('fs');
+var env = require('./env.js');
+var deps = require('./deps.js');
+var log = require('./log.js');
+&nbsp;
+// Constants
+var CONFIG_FILENAME = 'kalabox.json';
+exports.CONFIG_FILENAME = CONFIG_FILENAME;
+&nbsp;
+var DEFAULT_GLOBAL_CONFIG = {
+  domain: 'kbox',
+  engine: 'docker',
+  services: 'kalabox',
+  kboxRoot: ':home:/kalabox',
+  codeRoot: ':kboxRoot:/code',
+  kalaboxRoot: ':kboxRoot:',
+  logLevel: 'debug',
+  logLevelConsole: 'info',
+  logRoot: ':sysConfRoot:/logs',
+  appsRoot: ':kboxRoot:/apps',
+  appRegistry: ':sysConfRoot:/appRegistry.json',
+  globalPluginRoot: ':kboxRoot:/plugins',
+  globalPlugins: [
+    'kalabox_hipache',
+    'kalabox_core',
+    'kalabox_install',
+    'kalabox_app',
+    'kalabox_provider',
+    'kalabox_syncthing'
+  ]
+};
+&nbsp;
+var logDebug = log.debug;
+var logInfo = log.info;
+&nbsp;
+// @todo: implement
+//var KEYS_TO_CONCAT = {};
+&nbsp;
+function normalizeValue(key, config) {
+  var rawValue = config[key];
+  if (typeof rawValue === 'string') {
+    var params = rawValue.match(/:[a-zA-Z0-9-_]*:/g);
+    if (params !== null) {
+      for (var index in params) {
+        var param = params[index];
+        var paramKey = param.substr(1, param.length - 2);
+        var paramValue = config[paramKey];
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (paramValue !== undefined) {
+          config[key] = rawValue.replace(param, paramValue);
+        }
+      }
+    }
+  }
+}
+exports.normalizeValue = normalizeValue;
+&nbsp;
+function normalize(config) {
+  for (var key in config) {
+    normalizeValue(key, config);
+  }
+  return config;
+}
+exports.normalize = normalize;
+&nbsp;
+function sort(config) {
+  var keys = Object.keys(config).sort();
+  var retVal = {};
+  for (var i = 0; i &lt; keys.length; ++i) {
+    var key = keys[i];
+    retVal[key] = config[key];
+  }
+  return retVal;
+}
+&nbsp;
+function mixIn(a, b/*, keysToConcat*/) {
+  /*if (!keysToConcat) {
+    keysToConcat = KEYS_TO_CONCAT;
+  }*/
+  for (var key in b) {
+    //var shouldConcat = keysToConcat[key] !== undefined;
+    var shouldConcat = false;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (shouldConcat) {
+      // Concat.
+<span class="cstat-no" title="statement not covered" >      if (a[key] === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        a[key] = b[key];</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        a[key] = a[key].concat(b[key]);</span>
+      }
+    } else {
+      // Override.
+      a[key] = b[key];
+    }
+  }
+  return sort(normalize(a));
+}
+exports.mixIn = mixIn;
+&nbsp;
+/**
+ * Gets the kalabox environment config.
+ * @returns {object} config - The kalabox enviroment config.
+ * @example
+ * var envConfig = kbox.core.config.getEnvConfig();
+ * // Print home directory to stdout.
+ * console.log(envConfig.home);
+ */
+exports.getEnvConfig = function() {
+  return {
+    home: env.getHomeDir(),
+    sysConfRoot: env.getSysConfRoot(),
+    sysProviderRoot: env.getSysProviderRoot(),
+    srcRoot: env.getSourceRoot()
+  };
+};
+&nbsp;
+/**
+ * Gets the default config. The default config is a combination of the
+ *   environment config and a set of default config values.
+ * @returns {object} config - The kalabox default config.
+ * @example
+ * var defaultConfig = kbox.core.config.getDefaultConfig();
+ * // Print global plugins
+ * defaultConfig.globalPlugins.forEach(function(plugin) {
+ *   console.log(plugin)  ;
+ * });
+ */
+exports.getDefaultConfig = function() {
+  return mixIn(this.getEnvConfig(), DEFAULT_GLOBAL_CONFIG);
+};
+&nbsp;
+var getGlobalConfigFilepath = function() {
+  return path.join(env.getSysConfRoot(), CONFIG_FILENAME);
+};
+&nbsp;
+var loadConfigFile = function(configFilepath) {
+  return require(configFilepath);
+};
+&nbsp;
+/**
+ * Gets the global config. The global config is a combination of the
+ *   environment config, the default config, and any values overriden
+ *   in the $HOME/.kalabox/kalabox.json config file.
+ * @returns {object} config - The kalabox global config.
+ * @example
+ * var globalConfig = kbox.core.config.getGlobalConfig();
+ * // Print the entire global config.
+ * console.log(JSON.stringify(globalConfig, null, '\t'));
+ */
+exports.getGlobalConfig = function() {
+  var defaultConfig = this.getDefaultConfig();
+  var globalConfigFilepath = getGlobalConfigFilepath();
+  if (fs.existsSync(globalConfigFilepath)) {
+    var globalConfigFile = loadConfigFile(globalConfigFilepath);
+    return mixIn(defaultConfig, globalConfigFile);
+  } else {
+    return defaultConfig;
+  }
+};
+&nbsp;
+exports.getAppConfigFilepath = <span class="fstat-no" title="function not covered" >function(app, config) {</span>
+<span class="cstat-no" title="statement not covered" >  return path.join(config.appsRoot, app.name, CONFIG_FILENAME);</span>
+};
+&nbsp;
+/**
+ * Gets the app config for an app. The app config is a combination of the
+ *   environment config, the default config, any values overriden in the
+ *   $HOME/.kalabox/kalabox.json config file, and the kalabox.json config
+ *   file in the app's root directory.
+ * @arg {string} app - The name of the app you'd like to get the config for.
+ * @returns {object} config - The app's kalabox app config.
+ * @example
+ * var appConfig = kbox.core.config.getAppConfig('myapp');
+ * // Print the entire app config.
+ * console.log(JSON.stringify(appConfig, null, '\t'));
+ */
+exports.getAppConfig = function(app, appRoot) {
+  // @todo: this is jank
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof app === 'string') {
+<span class="cstat-no" title="statement not covered" >    var appName = app;</span>
+<span class="cstat-no" title="statement not covered" >    app = {name: appName};</span>
+  }
+&nbsp;
+  var globalConfig = this.getGlobalConfig();
+&nbsp;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!appRoot) {
+    appRoot = path.join(globalConfig.appsRoot, app.name);
+  }
+&nbsp;
+  var appConfigFilepath = path.join(appRoot, CONFIG_FILENAME);
+  var appConfigFile = require(appConfigFilepath);
+  appConfigFile.appRoot = appRoot;
+  appConfigFile.appCidsRoot = ':appRoot:/.cids';
+  var retVal = mixIn(globalConfig, appConfigFile);
+  logDebug('CONFIG =&gt; App config loaded.', retVal);
+  return retVal;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 04 2015 01:56:41 GMT+0000 (UTC)</div>
+</div>
+
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../sorter.js"></script>
+</body>
+</html>

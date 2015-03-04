@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/share.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">lib/share.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">17.93% <small>(26 / 145)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 62)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">17.93% <small>(26 / 145)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; share.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var engine = require('./engine.js');
+var _ = require('lodash');
+var services = require('./services/kalabox/services.js');
+var Sync = require('./share/sync/sync.js');
+var core = require('./core.js');
+var Promise = require('bluebird');
+var container = require('./share/sync/syncContainer.js');
+var async = require('async');
+&nbsp;
+var CONTAINER_NAME = 'kalabox_syncthing';
+&nbsp;
+var logDebug = core.log.debug;
+&nbsp;
+var logInfo = core.log.info;
+&nbsp;
+var isAppRunning = <span class="fstat-no" title="function not covered" >function(appName) {</span>
+<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.list(appName, <span class="fstat-no" title="function not covered" >function(err, containers) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        reject(err);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        async.reduce(containers, false, <span class="fstat-no" title="function not covered" >function(found, container, next) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (!found) {</span>
+<span class="cstat-no" title="statement not covered" >            engine.inspect(container.name, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                next(err);</span>
+              } else <span class="cstat-no" title="statement not covered" >if (data.State.Running) {</span>
+<span class="cstat-no" title="statement not covered" >                next(null, true);</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                next(null, found);</span>
+              }
+            });
+          } else {
+<span class="cstat-no" title="statement not covered" >            next(null, found);</span>
+          }
+        },
+<span class="fstat-no" title="function not covered" >      function(err, found) {</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >          reject(err);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          fulfill(found);</span>
+        }
+      });
+      }
+    });
+  });
+};
+&nbsp;
+var getDataContainers = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.list(<span class="fstat-no" title="function not covered" >function(err, containers) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        reject(err);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        fulfill(containers);</span>
+      }
+    });
+  })
+  .filter(<span class="fstat-no" title="function not covered" >function(container) {</span>
+<span class="cstat-no" title="statement not covered" >    var parts = container.name.split('_');</span>
+<span class="cstat-no" title="statement not covered" >    var isDataContainer =</span>
+      parts.length === 3 &amp;&amp;
+      parts[0] === 'kb' &amp;&amp;
+      parts[2] === 'data';
+<span class="cstat-no" title="statement not covered" >    if (!isDataContainer) {</span>
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      return isAppRunning(parts[1]);</span>
+    }
+  })
+  .then(<span class="fstat-no" title="function not covered" >function(dataContainers) {</span>
+<span class="cstat-no" title="statement not covered" >    return Promise.all(dataContainers);</span>
+  })
+  .then(<span class="fstat-no" title="function not covered" >function(dataContainers) {</span>
+<span class="cstat-no" title="statement not covered" >    logDebug('SHARE =&gt; Data containers with an app running.', dataContainers);</span>
+<span class="cstat-no" title="statement not covered" >    return dataContainers;</span>
+  });
+};
+&nbsp;
+var getDataContainerVolume = <span class="fstat-no" title="function not covered" >function(dataContainer) {</span>
+<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.inspect(dataContainer.name, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        reject(err);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        if (data.Volumes['/data']) {</span>
+<span class="cstat-no" title="statement not covered" >          fulfill(data.Volumes['/data']);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          fulfill(null);</span>
+        }
+      }
+    });
+  });
+};
+&nbsp;
+var getVolumes = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return getDataContainers()</span>
+  .then(<span class="fstat-no" title="function not covered" >function(dataContainers) {</span>
+<span class="cstat-no" title="statement not covered" >    var binds = _.map(dataContainers, <span class="fstat-no" title="function not covered" >function(dataContainer) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return getDataContainerVolume(dataContainer)</span>
+      .then(<span class="fstat-no" title="function not covered" >function(volume) {</span>
+<span class="cstat-no" title="statement not covered" >        if (volume) {</span>
+<span class="cstat-no" title="statement not covered" >          return {app: dataContainer.app, volume: volume};</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return null;</span>
+        }
+      });
+    });
+<span class="cstat-no" title="statement not covered" >    return Promise.all(binds)</span>
+    .then(<span class="fstat-no" title="function not covered" >function(values) {</span>
+<span class="cstat-no" title="statement not covered" >      return values.filter(<span class="fstat-no" title="function not covered" >function(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return (value !== null);</span>
+      });
+    });
+  });
+};
+&nbsp;
+var getCurrentShares = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >  engine.inspect(CONTAINER_NAME, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >      cb(err);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      cb(null, data.Volumes);</span>
+    }
+  });
+};
+&nbsp;
+var updateBinds = <span class="fstat-no" title="function not covered" >function(binds, cb) {</span>
+<span class="cstat-no" title="statement not covered" >  engine.stop(CONTAINER_NAME, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >      cb(err);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      var startOptions = services.syncthing().createOpts;</span>
+<span class="cstat-no" title="statement not covered" >      startOptions.HostConfig.Binds = binds;</span>
+<span class="cstat-no" title="statement not covered" >      engine.start(CONTAINER_NAME, startOptions, cb);</span>
+    }
+  });
+};
+&nbsp;
+var sharesToBinds = <span class="fstat-no" title="function not covered" >function(shares) {</span>
+<span class="cstat-no" title="statement not covered" >  var binds = [];</span>
+<span class="cstat-no" title="statement not covered" >  for (var key in shares) {</span>
+<span class="cstat-no" title="statement not covered" >    binds.push([shares[key], key].join(':'));</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return binds;</span>
+};
+&nbsp;
+var getLocalSync = exports.getLocalSync = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill) {</span></span>
+<span class="cstat-no" title="statement not covered" >    fulfill(new Sync('127.0.0.1'));</span>
+  });
+};
+&nbsp;
+var getRemoteSync = exports.getRemoteSync = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >    engine.provider.engineConfig(<span class="fstat-no" title="function not covered" >function(err, engineConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        reject(err);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        fulfill(new Sync(engineConfig.host));</span>
+      }
+    });
+  });
+};
+&nbsp;
+var resetSync = <span class="fstat-no" title="function not covered" >function(sync) {</span>
+<span class="cstat-no" title="statement not covered" >  return sync.isUp()</span>
+  .then(<span class="fstat-no" title="function not covered" >function(isUp) {</span>
+<span class="cstat-no" title="statement not covered" >    if (isUp) {</span>
+<span class="cstat-no" title="statement not covered" >      return sync.clear()</span>
+      .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return sync.restartWait();</span>
+      });
+    }
+  });
+};
+&nbsp;
+var resetSyncs = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  logDebug('SHARE =&gt; Resetting syncs.');</span>
+<span class="cstat-no" title="statement not covered" >  return getLocalSync()</span>
+  .then(<span class="fstat-no" title="function not covered" >function(localSync) {</span>
+<span class="cstat-no" title="statement not covered" >    return resetSync(localSync);</span>
+  })
+  .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    return getRemoteSync();</span>
+  })
+  .then(<span class="fstat-no" title="function not covered" >function(remoteSync) {</span>
+<span class="cstat-no" title="statement not covered" >    return resetSync(remoteSync);</span>
+  });
+};
+&nbsp;
+var setupSyncs = <span class="fstat-no" title="function not covered" >function(volumes) {</span>
+<span class="cstat-no" title="statement not covered" >  logDebug('SHARE =&gt; Setting up syncs.');</span>
+<span class="cstat-no" title="statement not covered" >  return Promise.join(getLocalSync(), getRemoteSync(),</span>
+<span class="fstat-no" title="function not covered" >  function(localSync, remoteSync) {</span>
+<span class="cstat-no" title="statement not covered" >    return localSync.start()</span>
+    .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      return remoteSync.wait();</span>
+    })
+    .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      return localSync.linkDevices(remoteSync);</span>
+    })
+    .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      return Promise.resolve(volumes)</span>
+      .each(<span class="fstat-no" title="function not covered" >function(volume) {</span>
+<span class="cstat-no" title="statement not covered" >        return localSync.shareFolder(volume.app, remoteSync);</span>
+      });
+    })
+    .all()
+    .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      return remoteSync.restartWait();</span>
+    })
+    .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      return localSync.restartWait();</span>
+    });
+  });
+};
+&nbsp;
+var stop = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  logDebug('SHARE =&gt; Stopping.');</span>
+<span class="cstat-no" title="statement not covered" >  return container.isInstalled()</span>
+  .then(<span class="fstat-no" title="function not covered" >function(isInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >    logDebug('SHARE =&gt; isInstalled =&gt; ' + isInstalled);</span>
+    // If the container is installed
+<span class="cstat-no" title="statement not covered" >    if (isInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >      return container.isRunning()</span>
+      .then(<span class="fstat-no" title="function not covered" >function(isRunning) {</span>
+<span class="cstat-no" title="statement not covered" >        logDebug('SHARE =&gt; isRunning =&gt; ' + isRunning);</span>
+        // If the container is running
+<span class="cstat-no" title="statement not covered" >        if (isRunning) {</span>
+          // Reset syncs
+<span class="cstat-no" title="statement not covered" >          return resetSyncs()</span>
+          // Stop container
+          .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            logDebug('SHARE =&gt; Stopping container.');</span>
+<span class="cstat-no" title="statement not covered" >            return container.stop();</span>
+          });
+        } else {
+<span class="cstat-no" title="statement not covered" >          return null;</span>
+        }
+      })
+      // Remove the container
+      .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        logDebug('SHARE =&gt; Removing container.');</span>
+<span class="cstat-no" title="statement not covered" >        return container.remove();</span>
+      });
+    }
+  });
+};
+&nbsp;
+var start = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  var _volumes = null;</span>
+<span class="cstat-no" title="statement not covered" >  return container.isInstalled()</span>
+  // Validate current state
+  .then(<span class="fstat-no" title="function not covered" >function(isInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >    if (isInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >      return Promise.reject('Sync container is already installed.');</span>
+    }
+  })
+  // Create container
+  .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    return getVolumes()</span>
+    .then(<span class="fstat-no" title="function not covered" >function(volumes) {</span>
+<span class="cstat-no" title="statement not covered" >      _volumes = volumes;</span>
+<span class="cstat-no" title="statement not covered" >      var binds = _.map(volumes, <span class="fstat-no" title="function not covered" >function(x) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return [x.volume, '/' + x.app].join(':');</span>
+      });
+<span class="cstat-no" title="statement not covered" >      logDebug('SHARE =&gt; Creating container.');</span>
+<span class="cstat-no" title="statement not covered" >      return container.create(binds);</span>
+    });
+  })
+  // Start container
+  .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    logDebug('SHARE =&gt; Starting container.');</span>
+<span class="cstat-no" title="statement not covered" >    return container.start();</span>
+  })
+  // Setup syncs
+  .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    if (_volumes &amp;&amp; _volumes.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      return setupSyncs(_volumes);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      return Promise.resolve();</span>
+    }
+  });
+&nbsp;
+};
+&nbsp;
+var restart = exports.restart = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >  logDebug('SHARE =&gt; Restarting...');</span>
+  // Stop
+<span class="cstat-no" title="statement not covered" >  stop()</span>
+  .delay(10000)
+  // Start
+  .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    return start();</span>
+  })
+  .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    logDebug('SHARE =&gt; Finished restarting.');</span>
+<span class="cstat-no" title="statement not covered" >    cb();</span>
+  })
+  .catch(<span class="fstat-no" title="function not covered" >function(err) {</span>
+<span class="cstat-no" title="statement not covered" >    logInfo('SHARE =&gt; Error while restarting.', err);</span>
+<span class="cstat-no" title="statement not covered" >    cb(err);</span>
+  });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 04 2015 01:56:41 GMT+0000 (UTC)</div>
+</div>
+
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../sorter.js"></script>
+</body>
+</html>

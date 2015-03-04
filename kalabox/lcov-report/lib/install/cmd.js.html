@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/install/cmd.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../prettify.css">
+
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">lib/install/cmd.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">28% <small>(14 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">28% <small>(14 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/install/</a> &#187; cmd.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+  * @file
+  */
+&nbsp;
+'use strict';
+&nbsp;
+var _ = require('lodash');
+&nbsp;
+var util = require('../util.js');
+var path = require('path');
+var shell = util.shell;
+&nbsp;
+var buildInstallCmdLinux = <span class="fstat-no" title="function not covered" >function(pkg, osInfo) {</span>
+<span class="cstat-no" title="statement not covered" >  if (osInfo.ID === 'debian' || osInfo.ID_LIKE === 'debian') {</span>
+<span class="cstat-no" title="statement not covered" >    return 'dpkg -i ' + pkg;</span>
+  }
+  else {
+<span class="cstat-no" title="statement not covered" >    return 'rpm -Uvh ' + pkg;</span>
+  }
+};
+&nbsp;
+var buildInstallCmdDarwin = <span class="fstat-no" title="function not covered" >function(pkg, targetVolume) {</span>
+<span class="cstat-no" title="statement not covered" >  return 'installer -verbose -pkg ' + pkg + ' -target ' + targetVolume;</span>
+};
+&nbsp;
+var buildInstallCmdWin32 = <span class="fstat-no" title="function not covered" >function(pkg, inf) {</span>
+  // @todo: what if we have an MSI?
+<span class="cstat-no" title="statement not covered" >  return pkg +</span>
+    ' \'/SP /SILENT /VERYSILENT /SUPRESSMSGBOXES /NOCANCEL /NOREBOOT ' +
+    '/NORESTART /CLOSEAPPLICATIONS /LOADINF="' + inf + '"\'';
+};
+&nbsp;
+exports.buildInstallCmd = <span class="fstat-no" title="function not covered" >function(pkg, data) {</span>
+<span class="cstat-no" title="statement not covered" >  if (process.platform === 'win32') {</span>
+<span class="cstat-no" title="statement not covered" >    return buildInstallCmdWin32(pkg, data);</span>
+  }
+  else <span class="cstat-no" title="statement not covered" >if (process.platform === 'darwin') {</span>
+<span class="cstat-no" title="statement not covered" >    return buildInstallCmdDarwin(pkg, data);</span>
+  }
+  else {
+<span class="cstat-no" title="statement not covered" >    return buildInstallCmdLinux(pkg, data);</span>
+  }
+};
+&nbsp;
+var buildDnsCmdWin32 = <span class="fstat-no" title="function not covered" >function(ips, data) {</span>
+<span class="cstat-no" title="statement not covered" >  var cmds = [];</span>
+<span class="cstat-no" title="statement not covered" >  _.each(ips, <span class="fstat-no" title="function not covered" >function(ip) {</span></span>
+<span class="cstat-no" title="statement not covered" >    cmds.push(</span>
+      'netsh interface ipv4 add dnsservers "' + data[0] + '" ' + ip +
+      ' validate=no'
+    );
+  });
+<span class="cstat-no" title="statement not covered" >  cmds.push('ipconfig /flushdns');</span>
+<span class="cstat-no" title="statement not covered" >  return cmds;</span>
+};
+&nbsp;
+var buildDnsCmdDarwin = <span class="fstat-no" title="function not covered" >function(ips, data) {</span>
+<span class="cstat-no" title="statement not covered" >  var cmds = [];</span>
+<span class="cstat-no" title="statement not covered" >  cmds.push(['mkdir -p', data[0]].join(' '));</span>
+<span class="cstat-no" title="statement not covered" >  var dnsFile = data.join(path.sep);</span>
+<span class="cstat-no" title="statement not covered" >  _.each(ips, <span class="fstat-no" title="function not covered" >function(ip) {</span></span>
+<span class="cstat-no" title="statement not covered" >    cmds.push('echo \'"nameserver ' + ip + '"\' &gt;&gt; ' + dnsFile);</span>
+  });
+<span class="cstat-no" title="statement not covered" >  return cmds;</span>
+};
+&nbsp;
+var buildDnsCmdLinux = <span class="fstat-no" title="function not covered" >function(ips, data) {</span>
+<span class="cstat-no" title="statement not covered" >  var cmds = [];</span>
+<span class="cstat-no" title="statement not covered" >  cmds.push(['mkdir -p', data[0]].join(' '));</span>
+<span class="cstat-no" title="statement not covered" >  var dnsFile = data.join(path.sep);</span>
+<span class="cstat-no" title="statement not covered" >  _.each(ips, <span class="fstat-no" title="function not covered" >function(ip) {</span></span>
+<span class="cstat-no" title="statement not covered" >    cmds.push('echo \'"' + ip + '"\' &gt;&gt; ' + dnsFile);</span>
+  });
+<span class="cstat-no" title="statement not covered" >  return cmds;</span>
+};
+&nbsp;
+exports.buildDnsCmd = <span class="fstat-no" title="function not covered" >function(ips, data) {</span>
+<span class="cstat-no" title="statement not covered" >  if (process.platform === 'win32') {</span>
+<span class="cstat-no" title="statement not covered" >    return buildDnsCmdWin32(ips, data);</span>
+  }
+<span class="cstat-no" title="statement not covered" >  if (process.platform === 'darwin') {</span>
+<span class="cstat-no" title="statement not covered" >    return buildDnsCmdDarwin(ips, data);</span>
+  }
+  else {
+<span class="cstat-no" title="statement not covered" >    return buildDnsCmdLinux(ips, data);</span>
+  }
+};
+&nbsp;
+exports.runCmdsAsync = <span class="fstat-no" title="function not covered" >function(cmds) {</span>
+  // @todo: this is jank and not sure if works on windows?
+<span class="cstat-no" title="statement not covered" >  var cmd = cmds.join(' &amp;&amp; ');</span>
+<span class="cstat-no" title="statement not covered" >  return shell.execAdminAsync(cmd);</span>
+};
+&nbsp;
+exports.runCmds = <span class="fstat-no" title="function not covered" >function(cmds, callback) {</span>
+  // @todo: this is jank and not sure if works on windows?
+<span class="cstat-no" title="statement not covered" >  shell.execAdmin(cmds, <span class="fstat-no" title="function not covered" >function(err, output) {</span></span>
+<span class="cstat-no" title="statement not covered" >    callback(err, output);</span>
+  });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 04 2015 01:56:41 GMT+0000 (UTC)</div>
+</div>
+
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../sorter.js"></script>
+</body>
+</html>
