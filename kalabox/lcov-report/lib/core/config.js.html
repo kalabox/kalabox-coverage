@@ -18,16 +18,16 @@
     <h1>Code coverage report for <span class="entity">lib/core/config.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">92% <small>(69 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">92.41% <small>(73 / 79)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">62.5% <small>(10 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">90.91% <small>(10 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">91.67% <small>(11 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">92% <small>(69 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">92.41% <small>(73 / 79)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -238,7 +238,20 @@
 201
 202
 203
-204</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -250,6 +263,7 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -285,10 +299,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">168</span>
+<span class="cline-any cline-yes">168</span>
 <span class="cline-any cline-yes">152</span>
 <span class="cline-any cline-yes">152</span>
-<span class="cline-any cline-yes">144</span>
-<span class="cline-any cline-yes">144</span>
 <span class="cline-any cline-yes">40</span>
 <span class="cline-any cline-yes">40</span>
 <span class="cline-any cline-yes">40</span>
@@ -304,7 +318,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">11</span>
-<span class="cline-any cline-yes">151</span>
+<span class="cline-any cline-yes">167</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -314,8 +328,8 @@
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-yes">10</span>
-<span class="cline-any cline-yes">148</span>
-<span class="cline-any cline-yes">148</span>
+<span class="cline-any cline-yes">164</span>
+<span class="cline-any cline-yes">164</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -342,6 +356,10 @@
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -353,6 +371,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -449,6 +475,7 @@
 'use strict';
 &nbsp;
 var path = require('path');
+var os = require('os');
 var fs = require('fs');
 var env = require('./env.js');
 var deps = require('./deps.js');
@@ -546,6 +573,10 @@ function mixIn(a, b/*, keysToConcat*/) {
 }
 exports.mixIn = mixIn;
 &nbsp;
+var getPackageJson = function() {
+  return require(path.join(env.getSourceRoot(), 'package.json'));
+};
+&nbsp;
 /**
  * Gets the kalabox environment config.
  * @returns {object} config - The kalabox enviroment config.
@@ -555,11 +586,19 @@ exports.mixIn = mixIn;
  * console.log(envConfig.home);
  */
 exports.getEnvConfig = function() {
+  var packageJson = getPackageJson();
   return {
     home: env.getHomeDir(),
+    os: {
+      type: os.type(),
+      platform: os.platform(),
+      release: os.release(),
+      arch: os.arch()
+    },
     sysConfRoot: env.getSysConfRoot(),
     sysProviderRoot: env.getSysProviderRoot(),
-    srcRoot: env.getSourceRoot()
+    srcRoot: env.getSourceRoot(),
+    version: packageJson.version
   };
 };
 &nbsp;
@@ -649,7 +688,7 @@ exports.getAppConfig = function(app, appRoot) {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 04 2015 23:16:49 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Mar 07 2015 01:42:32 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../../prettify.js"></script>
