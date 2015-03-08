@@ -18,16 +18,16 @@
     <h1>Code coverage report for <span class="entity">lib/app.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">14.96% <small>(35 / 234)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">14.77% <small>(35 / 237)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">0% <small>(0 / 86)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 88)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">0% <small>(0 / 69)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 70)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">14.96% <small>(35 / 234)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">14.77% <small>(35 / 237)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -605,7 +605,13 @@
 568
 569
 570
-571</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+571
+572
+573
+574
+575
+576
+577</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -924,6 +930,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -934,6 +944,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1485,29 +1497,35 @@ var installComponent = <span class="fstat-no" title="function not covered" >func
  */
 exports.install = <span class="fstat-no" title="function not covered" >function(app, callback) {</span>
 <span class="cstat-no" title="statement not covered" >  core.deps.call(<span class="fstat-no" title="function not covered" >function(events) {</span></span>
-<span class="cstat-no" title="statement not covered" >    events.emit('pre-install', app, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    services.verify(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >      if (err) {</span>
 <span class="cstat-no" title="statement not covered" >        callback(err);</span>
       } else {
-<span class="cstat-no" title="statement not covered" >        disco.registerAppDir(app.config.appRoot, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >        events.emit('pre-install', app, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >          if (err) {</span>
 <span class="cstat-no" title="statement not covered" >            callback(err);</span>
           } else {
-<span class="cstat-no" title="statement not covered" >            helpers.mapAsync(</span>
-              getComponents(app),
-<span class="fstat-no" title="function not covered" >              function(component, done) {</span>
-<span class="cstat-no" title="statement not covered" >                installComponent(events, app, component, done);</span>
-              },
-<span class="fstat-no" title="function not covered" >              function(errs) {</span>
-<span class="cstat-no" title="statement not covered" >                if (errs &amp;&amp; errs.length &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >                  callback(errs[0]);</span>
-                } else {
-<span class="cstat-no" title="statement not covered" >                  events.emit('post-install', app, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
-<span class="cstat-no" title="statement not covered" >                    callback(err);</span>
-                  });
-                }
+<span class="cstat-no" title="statement not covered" >            disco.registerAppDir(app.config.appRoot, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                callback(err);</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                helpers.mapAsync(</span>
+                  getComponents(app),
+<span class="fstat-no" title="function not covered" >                  function(component, done) {</span>
+<span class="cstat-no" title="statement not covered" >                    installComponent(events, app, component, done);</span>
+                  },
+<span class="fstat-no" title="function not covered" >                  function(errs) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (errs &amp;&amp; errs.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                      callback(errs[0]);</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                      events.emit('post-install', app, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        callback(err);</span>
+                      });
+                    }
+                  }
+                );
               }
-            );
+            });
           }
         });
       }
@@ -1750,7 +1768,7 @@ exports.uninstall = <span class="fstat-no" title="function not covered" >functio
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Mar 07 2015 07:23:54 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Mar 08 2015 18:13:53 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../prettify.js"></script>
