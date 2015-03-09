@@ -18,16 +18,16 @@
     <h1>Code coverage report for <span class="entity">lib/install/cmd.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">28% <small>(14 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">25% <small>(15 / 60)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">0% <small>(0 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">0% <small>(0 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">28% <small>(14 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">25% <small>(15 / 60)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -135,7 +135,26 @@
 98
 99
 100
-101</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,6 +170,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,6 +186,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -247,22 +285,41 @@ var util = require('../util.js');
 var path = require('path');
 var shell = util.shell;
 &nbsp;
-var buildInstallCmdLinux = <span class="fstat-no" title="function not covered" >function(pkg, osInfo) {</span>
-<span class="cstat-no" title="statement not covered" >  if (osInfo.ID === 'debian' || osInfo.ID_LIKE === 'debian') {</span>
-<span class="cstat-no" title="statement not covered" >    return 'dpkg -i ' + pkg;</span>
+var esc = <span class="fstat-no" title="function not covered" >function(s) {</span>
+<span class="cstat-no" title="statement not covered" >  if (process.platform === 'win32') {</span>
+<span class="cstat-no" title="statement not covered" >    return s.replace(/ /g, '^ ');</span>
+  }
+<span class="cstat-no" title="statement not covered" >  if (process.platform === 'darwin') {</span>
+<span class="cstat-no" title="statement not covered" >    var parts = s.split(path.sep);</span>
+<span class="cstat-no" title="statement not covered" >    _.each(parts, <span class="fstat-no" title="function not covered" >function(part, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (part.indexOf(' ') &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >        parts[key] = '\\"' + part +  '\\"';</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    return parts.join(path.sep);</span>
   }
   else {
-<span class="cstat-no" title="statement not covered" >    return 'rpm -Uvh ' + pkg;</span>
+<span class="cstat-no" title="statement not covered" >    return s.replace(/ /g, '\\ ');</span>
+  }
+};
+&nbsp;
+var buildInstallCmdLinux = <span class="fstat-no" title="function not covered" >function(pkg, osInfo) {</span>
+<span class="cstat-no" title="statement not covered" >  if (osInfo.ID === 'debian' || osInfo.ID_LIKE === 'debian') {</span>
+<span class="cstat-no" title="statement not covered" >    return 'dpkg -i ' + esc(pkg);</span>
+  }
+  else {
+<span class="cstat-no" title="statement not covered" >    return 'rpm -Uvh ' + esc(pkg);</span>
   }
 };
 &nbsp;
 var buildInstallCmdDarwin = <span class="fstat-no" title="function not covered" >function(pkg, targetVolume) {</span>
-<span class="cstat-no" title="statement not covered" >  return 'installer -verbose -pkg ' + pkg + ' -target ' + targetVolume;</span>
+<span class="cstat-no" title="statement not covered" >  return 'installer -verbose -pkg ' + esc(pkg) +</span>
+    ' -target ' + targetVolume;
 };
 &nbsp;
 var buildInstallCmdWin32 = <span class="fstat-no" title="function not covered" >function(pkg, inf) {</span>
   // @todo: what if we have an MSI?
-<span class="cstat-no" title="statement not covered" >  return pkg +</span>
+<span class="cstat-no" title="statement not covered" >  return esc(pkg) +</span>
     ' \'/SP /SILENT /VERYSILENT /SUPRESSMSGBOXES /NOCANCEL /NOREBOOT ' +
     '/NORESTART /CLOSEAPPLICATIONS /LOADINF="' + inf + '"\'';
 };
@@ -340,7 +397,7 @@ exports.runCmds = <span class="fstat-no" title="function not covered" >function(
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Mar 08 2015 18:14:37 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 09 2015 16:35:40 GMT+0000 (UTC)</div>
 </div>
 
 <script src="../../prettify.js"></script>
