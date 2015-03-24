@@ -3,9 +3,7 @@
 <head>
     <title>Code coverage report for lib/engine.js</title>
     <meta charset="utf-8">
-
     <link rel="stylesheet" href="../prettify.css">
-
     <link rel="stylesheet" href="../base.css">
     <style type='text/css'>
         div.coverage-summary .sorter {
@@ -17,18 +15,10 @@
 <div class="header low">
     <h1>Code coverage report for <span class="entity">lib/engine.js</span></h1>
     <h2>
-        
-        Statements: <span class="metric">21.25% <small>(34 / 160)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        
-        
-        Branches: <span class="metric">0% <small>(0 / 70)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        
-        
-        Functions: <span class="metric">0% <small>(0 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        
-        
-        Lines: <span class="metric">21.25% <small>(34 / 160)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        
+        Statements: <span class="metric">19.65% <small>(34 / 173)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 80)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">19.65% <small>(34 / 173)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; engine.js</div>
@@ -508,7 +498,30 @@
 471
 472
 473
-474</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -647,6 +660,22 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -703,6 +732,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1071,7 +1107,7 @@ var verifyProviderIsReady = <span class="fstat-no" title="function not covered" 
               else {
 <span class="cstat-no" title="statement not covered" >                engine.init(config);</span>
 <span class="cstat-no" title="statement not covered" >                engineHasBeenInit = true;</span>
-<span class="cstat-no" title="statement not covered" >                callback(null);</span>
+<span class="cstat-no" title="statement not covered" >                callback();</span>
               }
             });
           }
@@ -1117,10 +1153,26 @@ exports.isUp = <span class="fstat-no" title="function not covered" >function(cal
  * var globalConfig = kbox.core.config.getGlobalConfig();
  * kbox.engine.init(globalConfig);
  */
-exports.init = <span class="fstat-no" title="function not covered" >function(globalConfig) {</span>
+exports.init = <span class="fstat-no" title="function not covered" >function(globalConfig, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof callback !== 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    throw new TypeError('Invalid callback function.');</span>
+  }
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  if (!engine) {</span>
-<span class="cstat-no" title="statement not covered" >    engine = require('./engine/' + globalConfig.engine + '.js');</span>
-<span class="cstat-no" title="statement not covered" >    core.deps.register('providerModule', engine.getProviderModule());</span>
+<span class="cstat-no" title="statement not covered" >    var engineName = globalConfig.engine;</span>
+<span class="cstat-no" title="statement not covered" >    core.deps.call(<span class="fstat-no" title="function not covered" >function(kboxRequire) {</span></span>
+<span class="cstat-no" title="statement not covered" >      kboxRequire(engineName, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >          callback(err);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          engine = result;</span>
+<span class="cstat-no" title="statement not covered" >          core.deps.register('providerModule', engine.getProviderModule());</span>
+<span class="cstat-no" title="statement not covered" >          callback();</span>
+        }
+      });
+    });
+  } else {
+<span class="cstat-no" title="statement not covered" >    callback();</span>
   }
 };
 &nbsp;
@@ -1177,6 +1229,13 @@ var list = exports.list = <span class="fstat-no" title="function not covered" >f
 <span class="cstat-no" title="statement not covered" >    callback = appName;</span>
 <span class="cstat-no" title="statement not covered" >    appName = null;</span>
   }
+<span class="cstat-no" title="statement not covered" >  if (appName &amp;&amp; typeof appName !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >    throw new TypeError('Invalid appName: ' + appName);</span>
+  }
+<span class="cstat-no" title="statement not covered" >  if (typeof callback !== 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    throw new TypeError('Invalid callback function: ' + callback);</span>
+  }
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  verifyProviderIsReady(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >    if (err) {</span>
 <span class="cstat-no" title="statement not covered" >      callback(err);</span>
@@ -1459,9 +1518,8 @@ exports.build = <span class="fstat-no" title="function not covered" >function(im
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Mar 17 2015 20:14:17 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Mar 24 2015 02:04:25 GMT+0000 (UTC)</div>
 </div>
-
 <script src="../prettify.js"></script>
 <script>
 window.onload = function () {
@@ -1470,7 +1528,6 @@ window.onload = function () {
         }
 };
 </script>
-
 <script src="../sorter.js"></script>
 </body>
 </html>
