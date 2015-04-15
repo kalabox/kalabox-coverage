@@ -15,10 +15,10 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">lib/core/config.js</span></h1>
     <h2>
-        Statements: <span class="metric">95.4% <small>(83 / 87)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">75% <small>(12 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">94.44% <small>(85 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">72.22% <small>(13 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Functions: <span class="metric">92.86% <small>(13 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">95.4% <small>(83 / 87)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">94.44% <small>(85 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/core/</a> &#187; config.js</div>
@@ -257,7 +257,10 @@
 230
 231
 232
-233</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+233
+234
+235
+236</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -300,14 +303,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">192</span>
-<span class="cline-any cline-yes">192</span>
+<span class="cline-any cline-yes">200</span>
+<span class="cline-any cline-yes">200</span>
 <span class="cline-any cline-yes">160</span>
 <span class="cline-any cline-yes">160</span>
 <span class="cline-any cline-yes">40</span>
@@ -325,7 +326,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">11</span>
-<span class="cline-any cline-yes">191</span>
+<span class="cline-any cline-yes">199</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -335,8 +336,8 @@
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-yes">10</span>
-<span class="cline-any cline-yes">188</span>
-<span class="cline-any cline-yes">188</span>
+<span class="cline-any cline-yes">196</span>
+<span class="cline-any cline-yes">196</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -380,6 +381,11 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">6</span>
 <span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -510,8 +516,8 @@ exports.CONFIG_FILENAME = CONFIG_FILENAME;
 &nbsp;
 var DEFAULT_GLOBAL_CONFIG = {
   domain: 'kbox',
-  engine: 'kalabox-engine-docker',
-  services: 'kalabox-services-kalabox',
+  engine: 'kalabox-engine-docker@0.6.7',
+  services: 'kalabox-services-kalabox@0.6.7',
   profile: 'standard',
   sharing: true,
   kboxRoot: ':home:/kalabox',
@@ -524,10 +530,8 @@ var DEFAULT_GLOBAL_CONFIG = {
   appRegistry: ':sysConfRoot:/appRegistry.json',
   globalPluginRoot: ':kboxRoot:/plugins',
   globalPlugins: [
-    'kalabox-services-kalabox',
-    'kalabox-engine-docker',
-    'kalabox_core',
-    'kalabox_syncthing'
+    'kalabox-core',
+    'kalabox-syncthing'
   ],
   configSources: [
     'DEFAULT_GLOBAL_CONFIG'
@@ -611,7 +615,12 @@ var getPackageJson = function() {
  */
 exports.getEnvConfig = function() {
   var packageJson = getPackageJson();
+  var provisioned = false;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (fs.existsSync(path.join(env.getSysConfRoot(), 'provisioned'))) {
+<span class="cstat-no" title="statement not covered" >    provisioned = true;</span>
+  }
   return {
+    provisioned: provisioned,
     home: env.getHomeDir(),
     os: {
       type: os.type(),
@@ -726,7 +735,7 @@ exports.getAppConfig = function(app, appRoot) {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Mar 28 2015 04:51:02 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 15 2015 04:48:55 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>

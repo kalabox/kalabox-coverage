@@ -15,10 +15,10 @@
 <div class="header low">
     <h1>Code coverage report for <span class="entity">lib/app.js</span></h1>
     <h2>
-        Statements: <span class="metric">15.19% <small>(36 / 237)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">0% <small>(0 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">0% <small>(0 / 70)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">15.19% <small>(36 / 237)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">15.21% <small>(33 / 217)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 84)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 66)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">15.21% <small>(33 / 217)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; app.js</div>
@@ -556,48 +556,7 @@
 529
 530
 531
-532
-533
-534
-535
-536
-537
-538
-539
-540
-541
-542
-543
-544
-545
-546
-547
-548
-549
-550
-551
-552
-553
-554
-555
-556
-557
-558
-559
-560
-561
-562
-563
-564
-565
-566
-567
-568
-569
-570
-571
-572
-573</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+532</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -616,47 +575,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1187,48 +1105,7 @@ var _ = require('lodash');
 var share = require('./share.js');
 var disco = require('./app/discovery.js');
 var async = require('async');
-var npm = require('npm');
 var kbox = require('./kbox.js');
-&nbsp;
-/**
- * Builds an array of dependency strings for npm.commands.install().
- */
-var npmDependencyArray = <span class="fstat-no" title="function not covered" >function(packageFilePath) {</span>
-<span class="cstat-no" title="statement not covered" >  var p = require(packageFilePath);</span>
-<span class="cstat-no" title="statement not covered" >  if (!p.dependencies) {</span>
-<span class="cstat-no" title="statement not covered" >    return [];</span>
-  }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  var deps = [];</span>
-<span class="cstat-no" title="statement not covered" >  for (var mod in p.dependencies) {</span>
-<span class="cstat-no" title="statement not covered" >    deps.push(mod + '@' + p.dependencies[mod]);</span>
-  }
-<span class="cstat-no" title="statement not covered" >  return deps;</span>
-};
-&nbsp;
-/**
- * Installs nodejs dependencies for the given profile path.
- */
-exports.installPackages = <span class="fstat-no" title="function not covered" >function(packageFilePath, callback) {</span>
-<span class="cstat-no" title="statement not covered" >  var packageFile = path.join(packageFilePath, 'package.json');</span>
-<span class="cstat-no" title="statement not covered" >  if (!fs.existsSync(packageFile)) {</span>
-<span class="cstat-no" title="statement not covered" >    callback();</span>
-<span class="cstat-no" title="statement not covered" >    return;</span>
-  }
-<span class="cstat-no" title="statement not covered" >  var deps = npmDependencyArray(packageFile);</span>
-<span class="cstat-no" title="statement not covered" >  npm.load(</span>
-    {loaded: false},
-<span class="fstat-no" title="function not covered" >    function(err) {</span>
-<span class="cstat-no" title="statement not covered" >      if (err) {</span>
-<span class="cstat-no" title="statement not covered" >        callback(err);</span>
-      } else {
-<span class="cstat-no" title="statement not covered" >        npm.commands.install(packageFilePath, deps, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
-<span class="cstat-no" title="statement not covered" >          callback(err, data);</span>
-        });
-      }
-    }
-  );
-};
 &nbsp;
 var createComponent = <span class="fstat-no" title="function not covered" >function(app, name, componentSpec) {</span>
 <span class="cstat-no" title="statement not covered" >  var component = {};</span>
@@ -1746,7 +1623,7 @@ exports.uninstall = <span class="fstat-no" title="function not covered" >functio
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Mar 28 2015 04:51:02 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 15 2015 04:48:55 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>
