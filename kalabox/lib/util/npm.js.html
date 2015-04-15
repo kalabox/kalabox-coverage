@@ -15,10 +15,10 @@
 <div class="header low">
     <h1>Code coverage report for <span class="entity">lib/util/npm.js</span></h1>
     <h2>
-        Statements: <span class="metric">16.67% <small>(15 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">0% <small>(0 / 40)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">0% <small>(0 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">16.67% <small>(15 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">17.02% <small>(16 / 94)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">17.02% <small>(16 / 94)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/util/</a> &#187; npm.js</div>
@@ -209,7 +209,15 @@
 182
 183
 184
-185</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+185
+186
+187
+188
+189
+190
+191
+192
+193</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -224,7 +232,15 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -403,12 +419,20 @@
 var chalk = require('chalk');
 var _ = require('lodash');
 var fs = require('fs');
-var npm = require('npm');
 var path = require('path');
 var S = require('string');
 var helpers = require('./helpers.js');
 var deps = require('./../core/deps.js');
 var log = require('./../core/log.js');
+&nbsp;
+// Lazy load npm module.
+var _npm = null;
+var npm = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  if (!_npm) {</span>
+<span class="cstat-no" title="statement not covered" >    _npm = require('npm');</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return _npm;</span>
+};
 &nbsp;
 /**
  * Builds an array of dependency strings for npm.commands.install().
@@ -432,12 +456,12 @@ var npmDependencyArray = <span class="fstat-no" title="function not covered" >fu
  * Query the npm registry to find out if this module is an npm package.
  */
 var isNpmPackage = <span class="fstat-no" title="function not covered" >function(id, callback) {</span>
-<span class="cstat-no" title="statement not covered" >  npm.load(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >  npm().load(<span class="fstat-no" title="function not covered" >function(err) {</span></span>
 <span class="cstat-no" title="statement not covered" >    if (err) {</span>
 <span class="cstat-no" title="statement not covered" >      callback(err);</span>
     } else {
 <span class="cstat-no" title="statement not covered" >      var silent = true;</span>
-<span class="cstat-no" title="statement not covered" >      npm.commands.view([id], silent, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >      npm().commands.view([id], silent, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
 <span class="cstat-no" title="statement not covered" >        if (err) {</span>
 <span class="cstat-no" title="statement not covered" >          if (S(err.message).startsWith('404 Not Found: ' + id)) {</span>
 <span class="cstat-no" title="statement not covered" >            callback(null, false);</span>
@@ -477,13 +501,13 @@ var nodeOp = <span class="fstat-no" title="function not covered" >function(op, w
   };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  var npmThing = <span class="fstat-no" title="function not covered" >function(op, args) {</span></span>
-<span class="cstat-no" title="statement not covered" >    npm.load(</span>
+<span class="cstat-no" title="statement not covered" >    npm().load(</span>
       {loaded: false},
 <span class="fstat-no" title="function not covered" >      function(err) {</span>
 <span class="cstat-no" title="statement not covered" >        if (err) {</span>
 <span class="cstat-no" title="statement not covered" >          callback(err);</span>
         } else {
-<span class="cstat-no" title="statement not covered" >          npm.commands[op].apply(this, args);</span>
+<span class="cstat-no" title="statement not covered" >          npm().commands[op].apply(this, args);</span>
         }
       }
     );
@@ -582,7 +606,7 @@ exports.updateKalabox = <span class="fstat-no" title="function not covered" >fun
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 15 2015 23:05:59 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 15 2015 23:12:53 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>
