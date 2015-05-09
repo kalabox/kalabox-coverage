@@ -15,10 +15,10 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">lib/core/deps.js</span></h1>
     <h2>
-        Statements: <span class="metric">81.58% <small>(62 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">81.82% <small>(63 / 77)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">71.43% <small>(15 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">75% <small>(15 / 20)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">81.33% <small>(61 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">80% <small>(16 / 20)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">81.58% <small>(62 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/core/</a> &#187; deps.js</div>
@@ -241,7 +241,14 @@
 214
 215
 216
-217</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+217
+218
+219
+220
+221
+222
+223
+224</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -310,9 +317,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -342,6 +352,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -351,8 +369,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -451,8 +467,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">6</span>
 <span class="cline-any cline-yes">5</span>
@@ -494,7 +508,7 @@ exports.keys = <span class="fstat-no" title="function not covered" >function() {
 /**
  * Clears all registered dependencies.
  * @example
- * var deps = require(...);
+ * var deps = kbox.core.deps;
  * deps.register('foo', 'bar');
  * assert(deps.contains('foo'));
  * deps.clear();
@@ -508,7 +522,7 @@ exports.clear = function() {
  * Removes a given dependency.
  * @arg {string} name - Name of dependency to remove.
  * @example
- * var deps = require(...);
+ * var deps = kbox.core.deps;
  * deps.register('key', 'value');
  * deps.remove('key');
  */
@@ -518,12 +532,14 @@ exports.remove = function(name) {
 &nbsp;
 /**
  * Searches to find if a dependency exists.
+ * @static
+ * @method
  * @arg {string} name - Name of dependency.
  * @returns - True if dependency exists otherwise false.
  * @example
- * var deps = require(...);
- * if (!deps.contains('docker')) {
- *   deps.register('docker', new Docker(config));
+ * var deps = kbox.core.deps;
+ * if (!deps.contains('lunch')) {
+ *   deps.register('lunch', new MeatballSandwich({extraSauce: true}));
  * }
  */
 var contains = exports.contains = function(name) {
@@ -533,15 +549,16 @@ var contains = exports.contains = function(name) {
 &nbsp;
 /**
  * Registers dependency for later access by other modules.
+ * @static
+ * @method
  * @arg {string} name - Name of dependency.
  * @arg dependency - Dependency to register.
  * @example
- * var deps = require(...);
- * deps.register('app', new App(config));
+ * kbox.core.deps.register('dinner', new Steak({style: mediumWell}));
  */
 var register = exports.register = function(name, dep, done) {
   <span class="missing-if-branch" title="else path not taken" >E</span>if (!done) {
-    done = <span class="fstat-no" title="function not covered" >function() {</span>};
+    done = function() {};
   }
 &nbsp;
   if (_getDep(name) !== undefined) {
@@ -560,10 +577,18 @@ var register = exports.register = function(name, dep, done) {
 <span class="cstat-no" title="statement not covered" >        events.emit('app-registered', dep, done);</span>
       }
     });
+  } else {
+    done();
   }
 };
 &nbsp;
-// @todo: document
+/**
+ * Registers a dependency if it is not already registered.
+ * @arg {string} name - Name of dependency.
+ * @arg dependency - Dependency to register.
+ * @example
+ * kbox.core.deps.registerIf('shieldGeneratorLocation', location);
+ */
 exports.registerIf = function(name, dep) {
   if (!contains(name)) {
     register(name, dep);
@@ -574,17 +599,15 @@ exports.registerIf = function(name, dep) {
  * Looks up name of dependency and returns dependency.
  * @arg {string} name - Name of dependency.
  * @arg {object} [options] - Optional function behaivor.
- * @returns - Value of dependency or undefined if dependency does not exist.
+ * @returns - Value of dependency or null if dependency does not exist.
  * @example
- * var deps = require(...);
- * var result = deps.lookup('mydepname', {optional:true});
+ * var result = kbox.core.deps.lookup('mydepname', {optional:true});
  * if (result) {
  *   console.log(result);
  * }
  * @example
- * var deps = require(...);
  * try {
- *   var result = deps.lookup('mydepname');
+ *   var result = kbox.core.deps.lookup('mydepname');
  * } catch (err) {
  *   console.log('Dependency does not exist!');
  * }
@@ -622,7 +645,7 @@ exports.getFlags = <span class="fstat-no" title="function not covered" >function
  * @arg {object} overrides - Object containing key value pairs of overrides.
  * @arg {function} callback - Callback function to be called to restore overrides.
  * @example
- * var deps = require('...');
+ * var deps = kbox.core.deps;
  * assert(deps.lookup('mode') === 'prod');
  * deps.override({mode:test}, function(done) {
  *   assert(deps.lookup('mode') === 'test');
@@ -662,11 +685,9 @@ exports.inspect = inspect;
  * Calls callback function with auto populated dependencies.
  * @arg {function} cb - callback function.
  * @example
- * var deps = require(...);
- * deps.call(function(app, flagVerbose) {
- *   if (flagVerbose) {
- *     console.log(app.name);
- *   }
+ * kbox.core.deps.call(function(app, globalConfig, deathStarPlan, javaTheHut) {
+ *   console.log(app.name);
+ *   .......
  * });
  */
 exports.call = function(cb) {
@@ -678,7 +699,7 @@ exports.call = function(cb) {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 24 2015 20:32:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>

@@ -99,7 +99,50 @@
 72
 73
 74
-75</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -108,6 +151,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -166,8 +223,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -175,7 +261,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Module to loosely coupled shell execution.
- * @module shell
+ * @module kbox.util.shell
  */
 &nbsp;
 'use strict';
@@ -183,6 +269,20 @@
 var _shell = require('shelljs');
 var mode = require('../core/mode.js');
 &nbsp;
+/**
+ * Executes a shell command.
+ * @arg {string} cmd - The shell command to run.
+ * @example
+ * var shell = require(...);
+ * var cmd = 'which kbox';
+ * shell.exec(cmd, function(err, output) {
+ *   if (err) {
+ *     throw err;
+ *   } else {
+ *     console.log(output);
+ *   }
+ * });
+ */
 exports.execAsync = function(cmd) {
   return _shell.exec(cmd, {async:true, silent:true});
 };
@@ -214,7 +314,7 @@ var getAdminWrapper = <span class="fstat-no" title="function not covered" >funct
 &nbsp;
 /**
  * Executes a shell command.
- * @arg {string} command - The shell command to run.
+ * @arg {string} cmd - The shell command to run.
  * @arg {function} callback - Callback function that is called on completion.
  * @example
  * var shell = require(...);
@@ -240,10 +340,39 @@ exports.exec = function(cmd, callback) {
   });
 };
 &nbsp;
+/**
+ * Executes a command that requires admin permissions
+ * @arg {string} command - The shell command to run.
+ * @example
+ * var shell = require(...);
+ * var cmd = 'which kbox';
+ * shell.exec(cmd, function(err, output) {
+ *   if (err) {
+ *     throw err;
+ *   } else {
+ *     console.log(output);
+ *   }
+ * });
+ */
 exports.execAdminAsync = <span class="fstat-no" title="function not covered" >function(cmd) {</span>
 <span class="cstat-no" title="statement not covered" >  return this.execAsync(getAdminWrapper(cmd));</span>
 };
 &nbsp;
+/**
+ * Executes a command that requires admin permissions
+ * @arg {string} command - The shell command to run.
+ * @arg {function} callback - Callback function that is called on completion.
+ * @example
+ * var shell = require(...);
+ * var cmd = 'which kbox';
+ * shell.exec(cmd, function(err, output) {
+ *   if (err) {
+ *     throw err;
+ *   } else {
+ *     console.log(output);
+ *   }
+ * });
+ */
 exports.execAdmin = <span class="fstat-no" title="function not covered" >function(cmd, callback) {</span>
 <span class="cstat-no" title="statement not covered" >  this.exec(getAdminWrapper(cmd), callback);</span>
 };
@@ -252,7 +381,7 @@ exports.execAdmin = <span class="fstat-no" title="function not covered" >functio
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 24 2015 20:32:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>

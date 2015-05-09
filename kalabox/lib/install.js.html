@@ -55,7 +55,68 @@
 28
 29
 30
-31</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -83,12 +144,72 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-/*
- * Kalabox core module.
+/**
+ * Module for accessing the kalabox install framework.
+ * @module kbox.install
  */
 &nbsp;
 var cmd = require('./install/cmd.js');
@@ -114,13 +235,72 @@ exports.events = installFramework.events;
 &nbsp;
 exports.stepCount = installFramework.count;
 &nbsp;
+/**
+ * Register an install step with the kalabox install framework.
+ * @static
+ * @method
+ * @arg {function} handler - Function used to build a new install step.
+ * @arg {object} handler.step - Unitialized step object.
+ * @arg {function} handler.done [optional] - Callback function to return async
+ *   control back to kalabox.
+ * @example
+ * kbox.install.registerStep(function(step) {
+ *   step.name = 'install-my-custom-plugin';
+ *   step.description = 'Install my custom plugin that kicks butt!';
+ *
+ *   // List of the names of other steps this step requires to be run first.
+ *   step.deps = ['internet'];
+ *
+ *   // List of the names of other steps that should be run after
+ *   //   this one.
+ *   step.subscribes = ['use-my-custom-plugin'];
+ *
+ *   // You can define one function for all operating systems.
+ *   step.all = function(state, done) {
+ *     state.log('starting to install my custom plugin.');
+ *     myCustomPlug.install(function(err) {
+ *       if (err) {
+ *         return done(err);
+ *       }
+ *       state.log('done installing my custom plugin.');
+ *       done();
+ *     });
+ *   };
+ *
+ *   // Or you can define different functions for different operation systems.
+ *
+ *   // Run this install function only for darwin (Mac OS X).
+ *   step.all.darwin = function(state, done) {
+ *     // Do darwin specific stuffs.
+ *     done();
+ *   };
+ *
+ *   // Run this install function only for fedora.
+ *   step.all.linux.fedora = function(state, done) {
+ *     // Do fedora specific stuffs.
+ *     done();
+ *   };
+ *
+ *   // Here are all possible choices.
+ *   step.all: {
+ *     darwin: function
+ *     linux: {
+ *       debain: function,
+ *       fedora: function,
+ *       other: function
+ *     },
+ *     win32: function
+ *   };
+ *
+ * });
+ */
 exports.registerStep = installFramework.registerStep;
 &nbsp;</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 24 2015 20:32:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

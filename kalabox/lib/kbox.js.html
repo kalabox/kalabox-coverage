@@ -15,10 +15,10 @@
 <div class="header medium">
     <h1>Code coverage report for <span class="entity">lib/kbox.js</span></h1>
     <h2>
-        Statements: <span class="metric">76.92% <small>(20 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">76.92% <small>(20 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">61.11% <small>(22 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">61.11% <small>(22 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; kbox.js</div>
@@ -73,12 +73,63 @@
 46
 47
 48
-49</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -118,13 +169,57 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-/*
+/**
  * Root namespace for kalabox framework.
+ * @module kbox
  */
 &nbsp;
 var _self = this;
@@ -147,6 +242,9 @@ exports.util = util;
 var install = require('./install.js');
 exports.install = install;
 &nbsp;
+var create = require('./create.js');
+exports.create = create();
+&nbsp;
 var update = exports.update = require('./update.js');
 &nbsp;
 var share = require('./share.js');
@@ -166,15 +264,58 @@ exports.require = <span class="fstat-no" title="function not covered" >function(
 <span class="cstat-no" title="statement not covered" >  _require.require(_self, id, callback);</span>
 };
 &nbsp;
+/**
+ * Register a callback that only gets called when an app is loaded.
+ * @arg {function} callback - Function that is called when an app is loaded.
+ * @arg {object} callback.app - App object for the app that was loaded.
+ * @arg {function} callback.done [optional] - Optional callback function for performing
+ *   an asynchronous operation and then returning control back to kalabox.
+ * @example
+ *
+ * // Not all kalabox commands will be run with an app loaded. If you need
+ * // something to happen only when an app is loaded, kbox.whenApp is for you.
+ *
+ * kbox.whenApp(function(app, done) {
+ *   myPlugin.doSomething(app, function(err, result) {
+ *     if (err) {
+ *       return done(err);
+ *     }
+ *     console.log(result);
+ *     done();
+ *   });
+ * });
+ */
 exports.whenApp = <span class="fstat-no" title="function not covered" >function(cb) {</span>
-<span class="cstat-no" title="statement not covered" >  core.events.on('app-registered', cb);</span>
+&nbsp;
+  // Validate.
+<span class="cstat-no" title="statement not covered" >  if (typeof cb !== 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid callback function: ' + cb);</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (cb.length === 1) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    core.events.on('app-registered', <span class="fstat-no" title="function not covered" >function(app, done) {</span></span>
+<span class="cstat-no" title="statement not covered" >      cb(app);</span>
+<span class="cstat-no" title="statement not covered" >      done();</span>
+    });
+&nbsp;
+  } else <span class="cstat-no" title="statement not covered" >if (cb.length === 2) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    core.events.on('app-registered', cb);</span>
+&nbsp;
+  } else {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid function signature: ' + cb.toString());</span>
+&nbsp;
+  }
+&nbsp;
 };
 &nbsp;</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 24 2015 20:32:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

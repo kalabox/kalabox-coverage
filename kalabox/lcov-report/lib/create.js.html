@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/create.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">lib/create.js</span></h1>
+    <h2>
+        Statements: <span class="metric">14.29% <small>(19 / 133)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 56)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">4.35% <small>(1 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">14.29% <small>(19 / 133)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; create.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+/**
+ * Module for registering apps that can be createed
+ * @module kbox.create
+ */
+&nbsp;
+var _ = require('lodash');
+var fs = require('fs-extra');
+var path = require('path');
+var core = require('./core.js');
+var util = require('./util.js');
+var chalk = require('chalk');
+var appEngine = require('./app.js');
+&nbsp;
+module.exports = function() {
+  var apps = {};
+  var inquirer = require('inquirer');
+&nbsp;
+  /**
+   * Adds a type of app that you can create and options, interactive inquires
+   * and other fun stuff too that app.
+   * @static
+   * @method
+   * @arg {string} appName - What app to attach the data to.
+   * @arg {object} data - A task or option to add to the app.
+   * @example
+   * // This will create a command called `kbox create drupal`.
+   * kbox.create.add('drupal', {
+   *   task: {
+   *     name: 'Drupal',
+   *     module: 'kalabox-app-drupal',
+   *     description: 'Creates a Drupal app.'
+   *   }
+   * });
+   *
+   * // This will add a command line option called `name` to `kbox create drupal`.
+   * // It will also add interactive step asking for the name to be inputted if
+   * // it is not passed in to the CLI. The result of this will end up at the
+   * // top level of the app's kalabox.json in the appName key.
+   * kbox.create.add('drupal', {
+   *   option: {
+   *     name: 'name',
+   *     weight: -99,
+   *     task: {
+   *       kind: 'string',
+   *       description: 'The name of your app.',
+   *     },
+   *     inquire: {
+   *       type: 'input',
+   *       message: 'What will this app be called',
+   *       validate: function(value) {
+   *         // @todo some actual validation here
+   *         return true;
+   *       },
+   *       filter: function(value) {
+   *         return _.kebabCase(value);
+   *       },
+   *       default: 'My Drupal App'
+   *     },
+   *     conf: {
+   *       type: 'global',
+   *       key: 'appName'
+   *     }
+   *   }
+   * });
+   *
+   * // This add's an interactive step to `kbox drupal create` asking the
+   * // user to select a drupal version.
+   * kbox.create.add('drupal', {
+   *   option: {
+   *     name: 'drupal-version',
+   *     weight: -98,
+   *     inquire: {
+   *       type: 'list',
+   *       message: 'What major version of drupal',
+   *       default: '7',
+   *       choices: Object.keys(drupalMatrix)
+   *     }
+   *   }
+   * });
+   */
+  var add = <span class="fstat-no" title="function not covered" >function(appName, data) {</span>
+<span class="cstat-no" title="statement not covered" >    var optionDefaults = {</span>
+      name: null,
+      task: null,
+      weight: 0,
+      inquire: null,
+      conf: {
+        type: null,
+        key: null,
+        plugin: null
+      }
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!apps[appName]) {</span>
+<span class="cstat-no" title="statement not covered" >      create(appName);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (data.task) {</span>
+<span class="cstat-no" title="statement not covered" >      apps[appName].task = data.task;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (data.option) {</span>
+<span class="cstat-no" title="statement not covered" >      var merge = _.merge({}, optionDefaults, data.option);</span>
+<span class="cstat-no" title="statement not covered" >      apps[appName].options.push(merge);</span>
+    }
+  };
+&nbsp;
+  var create = <span class="fstat-no" title="function not covered" >function(appName) {</span>
+<span class="cstat-no" title="statement not covered" >    var appDefaults = {</span>
+      name : null,
+      task: {
+        name: null,
+        module: null,
+        description: null
+      },
+      options: []
+    };
+<span class="cstat-no" title="statement not covered" >    apps[appName] = appDefaults;</span>
+<span class="cstat-no" title="statement not covered" >    apps[appName].name = appName;</span>
+  };
+&nbsp;
+  var remove = <span class="fstat-no" title="function not covered" >function(appName) {</span>
+<span class="cstat-no" title="statement not covered" >    if (apps[appName]) {</span>
+<span class="cstat-no" title="statement not covered" >      delete apps[appName];</span>
+    }
+  };
+&nbsp;
+  var get = <span class="fstat-no" title="function not covered" >function(appName) {</span>
+<span class="cstat-no" title="statement not covered" >    if (appName) {</span>
+<span class="cstat-no" title="statement not covered" >      var options = _.sortBy(apps[appName].options, 'weight');</span>
+<span class="cstat-no" title="statement not covered" >      apps[appName].options = options;</span>
+<span class="cstat-no" title="statement not covered" >      return apps[appName];</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  };
+&nbsp;
+  var getAll = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    return apps;</span>
+  };
+&nbsp;
+  /**
+   * Assembles create.add metadata and builds a task to create a certain kind
+   * of app.
+   * @static
+   * @method
+   * @arg {object} task - A kbox task object.
+   * @arg {string} appName - The name of the kind of app to be created.
+   * @example
+   * // Task to create kalabox apps
+   * kbox.tasks.add(function(task) {
+   *  kbox.create.buildTask(task, 'frontpage98');
+   * });
+   */
+  var buildTask = <span class="fstat-no" title="function not covered" >function(task, appName) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!get(appName)) {</span>
+      // todo: something useful besides silentfail
+<span class="cstat-no" title="statement not covered" >      console.log('F!');</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >      var app = get(appName);</span>
+<span class="cstat-no" title="statement not covered" >      task.path = ['create', appName];</span>
+<span class="cstat-no" title="statement not covered" >      task.description = app.task.description;</span>
+&nbsp;
+      // Add app plugin stuff
+<span class="cstat-no" title="statement not covered" >      var questions = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      app.options.forEach(<span class="fstat-no" title="function not covered" >function(opt) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (opt.inquire) {</span>
+<span class="cstat-no" title="statement not covered" >          opt.inquire.name = opt.name;</span>
+<span class="cstat-no" title="statement not covered" >          questions.push(opt.inquire);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (opt.task) {</span>
+<span class="cstat-no" title="statement not covered" >          opt.task.name = opt.name;</span>
+<span class="cstat-no" title="statement not covered" >          task.options.push(opt.task);</span>
+        }
+      });
+&nbsp;
+      // Add global options
+<span class="cstat-no" title="statement not covered" >      task.options.push({</span>
+        name: 'install',
+        alias: 'i',
+        kind: 'boolean',
+        description: 'Auto install app after creation.',
+      });
+<span class="cstat-no" title="statement not covered" >      task.options.push({</span>
+        name: 'build-local',
+        kind: 'boolean',
+        description: 'Build images locally instead of pulling them remotely.'
+      });
+<span class="cstat-no" title="statement not covered" >      task.options.push({</span>
+        name: 'start',
+        alias: 's',
+        kind: 'boolean',
+        description: 'Auto start app after creation. Requires --install.',
+      });
+<span class="cstat-no" title="statement not covered" >      task.options.push({</span>
+        name: 'dir',
+        kind: 'string',
+        description: 'Creates the app in this directory. Defaults to CWD.',
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      task.func = <span class="fstat-no" title="function not covered" >function(done) {</span></span>
+        // Filter questions based on passed in opts
+<span class="cstat-no" title="statement not covered" >        var options = this.options;</span>
+<span class="cstat-no" title="statement not covered" >        questions = _.filter(questions, <span class="fstat-no" title="function not covered" >function(question) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var option = options[question.name];</span>
+<span class="cstat-no" title="statement not covered" >          if (question.filter) {</span>
+<span class="cstat-no" title="statement not covered" >            options[question.name] = question.filter(options[question.name]);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (option === false || option === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+          }
+          else {
+<span class="cstat-no" title="statement not covered" >            return !_.includes(Object.keys(options), question.name);</span>
+          }
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        inquirer.prompt(questions, <span class="fstat-no" title="function not covered" >function(answers) {</span></span>
+<span class="cstat-no" title="statement not covered" >          createApp(app, _.merge({}, options, answers), done);</span>
+        });
+      };
+&nbsp;
+    }
+  };
+&nbsp;
+  var createApp = <span class="fstat-no" title="function not covered" >function(app, results, done) {</span>
+<span class="cstat-no" title="statement not covered" >    var srcRoot = core.deps.lookup('config').srcRoot;</span>
+<span class="cstat-no" title="statement not covered" >    var dir = (results.dir) ? results.dir : process.cwd();</span>
+<span class="cstat-no" title="statement not covered" >    var source = path.join(srcRoot, 'node_modules', app.task.module, 'app');</span>
+<span class="cstat-no" title="statement not covered" >    var dest = path.join(dir, results.name);</span>
+<span class="cstat-no" title="statement not covered" >    console.log(chalk.yellow('Building your app...'));</span>
+<span class="cstat-no" title="statement not covered" >    fs.copy(source, dest, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        throw err;</span>
+      }
+      else {
+<span class="cstat-no" title="statement not covered" >        instantiateApp(app, results, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var install = results.install;</span>
+<span class="cstat-no" title="statement not covered" >          var start = results.start;</span>
+<span class="cstat-no" title="statement not covered" >          if (install) {</span>
+<span class="cstat-no" title="statement not covered" >            var config = core.config.getAppConfig(null, dest);</span>
+<span class="cstat-no" title="statement not covered" >            appEngine.create(results.name, config, <span class="fstat-no" title="function not covered" >function(err, loadedApp) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                return done(err);</span>
+              }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              core.deps.register('appConfig', loadedApp.config, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                  return done(err);</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                core.deps.register('app', loadedApp, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                  if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                    return done(err);</span>
+                  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  appEngine.loadPlugins(loadedApp, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                      return done(err);</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    appEngine.install(loadedApp, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        return done(err);</span>
+                      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                      console.log(chalk.green('App installed.'));</span>
+<span class="cstat-no" title="statement not covered" >                      if (start) {</span>
+<span class="cstat-no" title="statement not covered" >                        appEngine.start(loadedApp, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                          if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                            done(err);</span>
+                          }
+                          else {
+<span class="cstat-no" title="statement not covered" >                            console.log(chalk.green('App started.'));</span>
+<span class="cstat-no" title="statement not covered" >                            done();</span>
+                          }
+                        });
+                      } else {
+<span class="cstat-no" title="statement not covered" >                        console.log(chalk.green(</span>
+                          'App intalled!' +
+                            ' Run kbox start inside your app.'
+                        ));
+<span class="cstat-no" title="statement not covered" >                        done();</span>
+                      }
+                    });
+                  });
+&nbsp;
+                });
+              });
+            });
+&nbsp;
+          }
+          else {
+            // @todo: more imformative message?
+<span class="cstat-no" title="statement not covered" >            console.log(chalk.green(</span>
+              'App instantiated!' +
+                ' Run kbox install and kbox start inside your app'
+            ));
+<span class="cstat-no" title="statement not covered" >            done();</span>
+          }
+        });
+      }
+    });
+  };
+&nbsp;
+  var instantiateApp = <span class="fstat-no" title="function not covered" >function(app, results, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var sourcePath = path.join(</span>
+      core.deps.lookup('config').srcRoot,
+      'node_modules',
+      app.task.module,
+      'app'
+    );
+    // Load source files
+<span class="cstat-no" title="statement not covered" >    var sourceKbFile = path.join(sourcePath, 'kalabox.json');</span>
+<span class="cstat-no" title="statement not covered" >    var sourcePkgFile = path.join(sourcePath, 'package.json');</span>
+<span class="cstat-no" title="statement not covered" >    var kalaboxJson = require(sourceKbFile);</span>
+<span class="cstat-no" title="statement not covered" >    var pkgJson = require(sourcePkgFile);</span>
+&nbsp;
+    // Customize kb.json
+<span class="cstat-no" title="statement not covered" >    app.options.forEach(<span class="fstat-no" title="function not covered" >function(opt) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (opt.conf) {</span>
+<span class="cstat-no" title="statement not covered" >        if (opt.conf.type === 'global') {</span>
+<span class="cstat-no" title="statement not covered" >          kalaboxJson[opt.conf.key] = results[opt.name];</span>
+        }
+        else <span class="cstat-no" title="statement not covered" >if (opt.conf.type === 'plugin') {</span>
+<span class="cstat-no" title="statement not covered" >          var plugin = opt.conf.plugin;</span>
+<span class="cstat-no" title="statement not covered" >          var key = opt.conf.key;</span>
+<span class="cstat-no" title="statement not covered" >          if (!kalaboxJson.pluginConf[plugin]) {</span>
+<span class="cstat-no" title="statement not covered" >            kalaboxJson.pluginConf[plugin] = {};</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (kalaboxJson.pluginConf[plugin][key]) {</span>
+<span class="cstat-no" title="statement not covered" >            kalaboxJson.pluginConf[plugin][key] = results[opt.name];</span>
+          }
+          else {
+<span class="cstat-no" title="statement not covered" >            kalaboxJson.pluginConf[plugin][key] = results[opt.name];</span>
+          }
+        }
+      }
+    });
+&nbsp;
+    // Customize pkg.json
+<span class="cstat-no" title="statement not covered" >    pkgJson.name = results.name;</span>
+&nbsp;
+    // Update filezzz
+<span class="cstat-no" title="statement not covered" >    var dir = (results.dir) ? results.dir : process.cwd();</span>
+<span class="cstat-no" title="statement not covered" >    var appPath = path.join(dir, results.name);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var destKbFile = path.join(appPath, 'kalabox.json');</span>
+<span class="cstat-no" title="statement not covered" >    var destPkgFile = path.join(appPath, 'package.json');</span>
+<span class="cstat-no" title="statement not covered" >    fs.writeFileSync(destKbFile, JSON.stringify(kalaboxJson, null, 2));</span>
+<span class="cstat-no" title="statement not covered" >    fs.writeFileSync(destPkgFile, JSON.stringify(pkgJson, null, 2));</span>
+&nbsp;
+    // Install node deps
+<span class="cstat-no" title="statement not covered" >    util.npm.installPackages(appPath, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        callback(err);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        callback();</span>
+      }
+    });
+  };
+&nbsp;
+  return {
+    add: add,
+    get: get,
+    getAll: getAll,
+    buildTask: buildTask
+  };
+&nbsp;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -15,10 +15,10 @@
 <div class="header low">
     <h1>Code coverage report for <span class="entity">lib/app/discovery.js</span></h1>
     <h2>
-        Statements: <span class="metric">15.97% <small>(23 / 144)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">0% <small>(0 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">0% <small>(0 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">15.97% <small>(23 / 144)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">17.19% <small>(22 / 128)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">17.19% <small>(22 / 128)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/app/</a> &#187; discovery.js</div>
@@ -268,38 +268,7 @@
 241
 242
 243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+244</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -330,30 +299,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -456,13 +401,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -607,30 +545,6 @@ var getGlobalConfig = <span class="fstat-no" title="function not covered" >funct
   });
 };
 &nbsp;
-var getDirsAppsRoot = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill, reject) {</span></span>
-<span class="cstat-no" title="statement not covered" >    var globalConfig = getGlobalConfig();</span>
-<span class="cstat-no" title="statement not covered" >    var appsRoot = globalConfig.appsRoot;</span>
-<span class="cstat-no" title="statement not covered" >    fs.exists(appsRoot, <span class="fstat-no" title="function not covered" >function(exists) {</span></span>
-<span class="cstat-no" title="statement not covered" >      if (exists) {</span>
-<span class="cstat-no" title="statement not covered" >        fs.readdir(appsRoot, <span class="fstat-no" title="function not covered" >function(err, files) {</span></span>
-<span class="cstat-no" title="statement not covered" >          if (err) {</span>
-<span class="cstat-no" title="statement not covered" >            reject(err);</span>
-          } else {
-<span class="cstat-no" title="statement not covered" >            var filepaths = _.map(files, <span class="fstat-no" title="function not covered" >function(file) {</span></span>
-<span class="cstat-no" title="statement not covered" >              return path.join(appsRoot, file);</span>
-            });
-<span class="cstat-no" title="statement not covered" >            fulfill(filepaths);</span>
-          }
-        });
-      }
-      else {
-<span class="cstat-no" title="statement not covered" >        fulfill([]);</span>
-      }
-    });
-  });
-};
-&nbsp;
 var getAppRegistry = <span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill, reject) {</span></span>
 <span class="cstat-no" title="statement not covered" >    var globalConfig = getGlobalConfig();</span>
@@ -726,20 +640,13 @@ var inspectDirs = <span class="fstat-no" title="function not covered" >function(
 };
 &nbsp;
 var list = exports.list = <span class="fstat-no" title="function not covered" >function(callback) {</span>
-  // Get app dirs from appsRoot dir
-<span class="cstat-no" title="statement not covered" >  var appsRootApps = inspectDirs(getDirsAppsRoot())</span>
-  .all();
-&nbsp;
-  // Get app dirs from app registry file
-<span class="cstat-no" title="statement not covered" >  var appRegistryApps = inspectDirs(getDirsAppRegistry())</span>
-  .all();
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  Promise.join(appsRootApps, appRegistryApps,</span>
-<span class="fstat-no" title="function not covered" >    function(appsRootApps, appRegistryApps) {</span>
-<span class="cstat-no" title="statement not covered" >      logDebug('DISCO =&gt; AppsRoot dirs.', appsRootApps);</span>
-<span class="cstat-no" title="statement not covered" >      logDebug('DISCO =&gt; AppsRegistry dirs.', appRegistryApps);</span>
-<span class="cstat-no" title="statement not covered" >      callback(null, appsRootApps.concat(appRegistryApps));</span>
-    })
+  // Get app dirs from app registry file.
+<span class="cstat-no" title="statement not covered" >  inspectDirs(getDirsAppRegistry())</span>
+  .all()
+  .then(<span class="fstat-no" title="function not covered" >function(appRegistryApps) {</span>
+<span class="cstat-no" title="statement not covered" >    logDebug('DISCO =&gt; AppsRegistry dirs.', appRegistryApps);</span>
+<span class="cstat-no" title="statement not covered" >    callback(null, appRegistryApps);</span>
+  })
   .catch(<span class="fstat-no" title="function not covered" >function(err) {</span>
 <span class="cstat-no" title="statement not covered" >    callback(err);</span>
   });
@@ -852,7 +759,7 @@ var registerAppDir = exports.registerAppDir = <span class="fstat-no" title="func
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 24 2015 20:32:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>

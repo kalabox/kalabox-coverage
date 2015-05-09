@@ -15,10 +15,10 @@
 <div class="header low">
     <h1>Code coverage report for <span class="entity">lib/share/sync/syncRest.js</span></h1>
     <h2>
-        Statements: <span class="metric">16.95% <small>(10 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">16.39% <small>(10 / 61)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">0% <small>(0 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">16.95% <small>(10 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">16.39% <small>(10 / 61)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">lib/share/sync/</a> &#187; syncRest.js</div>
@@ -163,7 +163,13 @@
 136
 137
 138
-139</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+139
+140
+141
+142
+143
+144
+145</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -279,6 +285,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -387,54 +399,60 @@ var postJson = <span class="fstat-no" title="function not covered" >function(add
 &nbsp;
 var api = {
   completionDevice: <span class="fstat-no" title="function not covered" >function(address, device) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'completion?device=' + device);</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'db/completion?device=' + device);</span>
   },
   completionFolder: <span class="fstat-no" title="function not covered" >function(address, folder) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'completion?device=' + folder);</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'db/completion?device=' + folder);</span>
   },
   config: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'config');</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/config');</span>
   },
   configPost: <span class="fstat-no" title="function not covered" >function(address, config) {</span>
-<span class="cstat-no" title="statement not covered" >    return postJson(address, 'config', config);</span>
+<span class="cstat-no" title="statement not covered" >    return postJson(address, 'system/config', config);</span>
   },
   configSync: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'config/sync');</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/config/insync');</span>
   },
   connections: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'connections');</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/connections');</span>
   },
   discovery: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'discovery');</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/discovery');</span>
   },
   errors: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'errors');</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/errors');</span>
   },
   hint: <span class="fstat-no" title="function not covered" >function(address, deviceId, hintAddress) {</span>
 <span class="cstat-no" title="statement not covered" >    if (!hintAddress) {</span>
 <span class="cstat-no" title="statement not covered" >      hintAddress = 'dynamic';</span>
     }
 <span class="cstat-no" title="statement not covered" >    return postJson(address,</span>
-      'discovery/hint',
+      'system/discovery/hint',
       {device: deviceId, addr: hintAddress});
   },
   model: <span class="fstat-no" title="function not covered" >function(address, folder) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'model?folder=' + folder);</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'db/status?folder=' + folder);</span>
   },
   ping: <span class="fstat-no" title="function not covered" >function(address) {</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/ping');</span>
+  },
+  pingVersion10: <span class="fstat-no" title="function not covered" >function(address) {</span>
 <span class="cstat-no" title="statement not covered" >    return get(address, 'ping');</span>
   },
   restart: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return postJson(address, 'restart', null);</span>
+<span class="cstat-no" title="statement not covered" >    return postJson(address, 'system/restart', null);</span>
   },
   shutdown: <span class="fstat-no" title="function not covered" >function(address) {</span>
+<span class="cstat-no" title="statement not covered" >    return postJson(address, 'system/shutdown', null);</span>
+  },
+  shutdownVersion10: <span class="fstat-no" title="function not covered" >function(address) {</span>
 <span class="cstat-no" title="statement not covered" >    return postJson(address, 'shutdown', null);</span>
   },
   system: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'system');</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/status');</span>
   },
   version: <span class="fstat-no" title="function not covered" >function(address) {</span>
-<span class="cstat-no" title="statement not covered" >    return get(address, 'version');</span>
+<span class="cstat-no" title="statement not covered" >    return get(address, 'system/version');</span>
   }
 };
 &nbsp;
@@ -444,7 +462,7 @@ module.exports = api;
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 24 2015 20:32:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

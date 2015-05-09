@@ -52,7 +52,40 @@
 25
 26
 27
-28</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -61,6 +94,22 @@
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -74,20 +123,52 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
-  * @file
-  */
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-'use strict';
+/**
+ * Kalabox firewall utility module.
+ * @module kbox.util.firewall
+ */
 &nbsp;
 var shell = require('./shell.js');
 var _ = require('lodash');
 &nbsp;
+/**
+ * Gets status of firewall blocking everything.
+ * **ONLY WORKS ON OSX**
+ * @arg {function} callback - Callback function.
+ * @arg {error} callback.err - Possible error object.
+ * @arg {boolean} callback.result - Boolean result set to true if firewall is
+ *   blocking everything.
+ * @example
+ * kbox.util.firewall.isBlockingAll(function(err, isBlockingAll) {
+ *   if (err) {
+ *     throw err;
+ *   } else if (isBlockingAll) {
+ *     throw new Error('Firewall is blocking everything!');
+ *   }
+ * });
+ */
 exports.isBlockingAll = <span class="fstat-no" title="function not covered" >function(callback) {</span>
 <span class="cstat-no" title="statement not covered" >  var cmd = '/usr/libexec/ApplicationFirewall/socketfilterfw --getblockall';</span>
 <span class="cstat-no" title="statement not covered" >  shell.exec(cmd, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
@@ -101,9 +182,24 @@ exports.isBlockingAll = <span class="fstat-no" title="function not covered" >fun
   });
 };
 &nbsp;
+/**
+ * Gets status of firewall being in an okay state.
+ * **ONLY WORKS ON OSX**
+ * @arg {function} callback - Callback function.
+ * @arg {error} callback.err - Possible error object.
+ * @arg {boolean} callback.isOkay - Boolean result set to true if firewall is
+ *   in an okay state.
+ * @example
+ * kbox.util.firewall.isOkay(function(err, isOkay) {
+ *   if (err) {
+ *     return throw err;
+ *   }
+ *   console.log('Firewall is in a good state -&gt; ' + isOkay);
+ * });
+ */
 exports.isOkay = <span class="fstat-no" title="function not covered" >function(callback) {</span>
-<span class="cstat-no" title="statement not covered" >  this.isBlockingAll(<span class="fstat-no" title="function not covered" >function(isBlockingAll) {</span></span>
-<span class="cstat-no" title="statement not covered" >    callback(!isBlockingAll);</span>
+<span class="cstat-no" title="statement not covered" >  this.isBlockingAll(<span class="fstat-no" title="function not covered" >function(err, isBlockingAll) {</span></span>
+<span class="cstat-no" title="statement not covered" >    callback(err, !isBlockingAll);</span>
   });
 };
 &nbsp;</pre></td></tr>
@@ -111,7 +207,7 @@ exports.isOkay = <span class="fstat-no" title="function not covered" >function(c
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 24 2015 20:32:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 09 2015 00:48:26 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>
