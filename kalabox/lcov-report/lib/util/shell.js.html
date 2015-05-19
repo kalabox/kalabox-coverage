@@ -12,13 +12,13 @@
     </style>
 </head>
 <body>
-<div class="header medium">
+<div class="header low">
     <h1>Code coverage report for <span class="entity">lib/util/shell.js</span></h1>
     <h2>
-        Statements: <span class="metric">53.85% <small>(14 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">20% <small>(2 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">50% <small>(3 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">53.85% <small>(14 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">42.42% <small>(14 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">14.29% <small>(2 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">42.86% <small>(3 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">42.42% <small>(14 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/util/</a> &#187; shell.js</div>
@@ -142,7 +142,25 @@
 115
 116
 117
-118</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -171,19 +189,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -191,6 +207,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -287,7 +323,13 @@ exports.execAsync = function(cmd) {
   return _shell.exec(cmd, {async:true, silent:true});
 };
 &nbsp;
-var getAdminWrapper = <span class="fstat-no" title="function not covered" >function(cmd) {</span>
+var getAdminWrapper = <span class="fstat-no" title="function not covered" >function(cmd, options) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var autoPass = <span class="fstat-no" title="function not covered" >function(cmd, password) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var scmd = '';</span>
+<span class="cstat-no" title="statement not covered" >    return 'echo \'' + password + '\' | sudo -S sh -c \'' + cmd + '\'';</span>
+  };
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  if (process.platform === 'darwin') {</span>
 <span class="cstat-no" title="statement not covered" >    if (mode.get() !== 'cli') {</span>
 <span class="cstat-no" title="statement not covered" >      var appleScript =</span>
@@ -295,19 +337,31 @@ var getAdminWrapper = <span class="fstat-no" title="function not covered" >funct
 <span class="cstat-no" title="statement not covered" >      return 'osascript -e \'' + appleScript + '\'';</span>
     }
     else {
-<span class="cstat-no" title="statement not covered" >      return 'sudo sh -c \'' + cmd + '\'';</span>
+<span class="cstat-no" title="statement not covered" >      if (options.password !== false) {</span>
+<span class="cstat-no" title="statement not covered" >        return autoPass(cmd, options.password);</span>
+      }
+      else {
+<span class="cstat-no" title="statement not covered" >        return 'sudo sh -c \'' + cmd + '\'';</span>
+      }
     }
   }
+&nbsp;
   else <span class="cstat-no" title="statement not covered" >if (process.platform === 'win32') {</span>
 <span class="cstat-no" title="statement not covered" >    return cmd;</span>
   }
+&nbsp;
   else {
     // @todo: fedora?
 <span class="cstat-no" title="statement not covered" >    if (mode.get() !== 'cli') {</span>
 <span class="cstat-no" title="statement not covered" >      return 'pkexec --user root sudo sh -c \'' + cmd + '\'';</span>
     }
     else {
-<span class="cstat-no" title="statement not covered" >      return 'sudo sh -c \'' + cmd + '\'';</span>
+<span class="cstat-no" title="statement not covered" >      if (options.password !== false) {</span>
+<span class="cstat-no" title="statement not covered" >        return autoPass(cmd, options.password);</span>
+      }
+      else {
+<span class="cstat-no" title="statement not covered" >        return 'sudo sh -c \'' + cmd + '\'';</span>
+      }
     }
   }
 };
@@ -354,8 +408,8 @@ exports.exec = function(cmd, callback) {
  *   }
  * });
  */
-exports.execAdminAsync = <span class="fstat-no" title="function not covered" >function(cmd) {</span>
-<span class="cstat-no" title="statement not covered" >  return this.execAsync(getAdminWrapper(cmd));</span>
+exports.execAdminAsync = <span class="fstat-no" title="function not covered" >function(cmd, options) {</span>
+<span class="cstat-no" title="statement not covered" >  return this.execAsync(getAdminWrapper(cmd, options));</span>
 };
 &nbsp;
 /**
@@ -381,7 +435,7 @@ exports.execAdmin = <span class="fstat-no" title="function not covered" >functio
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue May 19 2015 17:30:39 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue May 19 2015 20:22:11 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>
