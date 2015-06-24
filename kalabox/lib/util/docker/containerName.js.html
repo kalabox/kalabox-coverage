@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/util/docker/containerName.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">lib/util/docker/containerName.js</span></h1>
+    <h2>
+        Statements: <span class="metric">40.74% <small>(22 / 54)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 20)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">40.74% <small>(22 / 54)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">lib/util/docker/</a> &#187; containerName.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var _ = require('lodash');
+var assert = require('assert');
+var Regex = require('regex');
+var util = require('util');
+var pp = util.inspect;
+var uuid = require('uuid');
+&nbsp;
+// Constants.
+var SEPARATOR = '_';
+var SERVICE_KIND = 'service';
+var SERVICE_PREFIX = 'kalabox';
+var APP_KIND = 'app';
+var APP_PREFIX = 'kb';
+&nbsp;
+/*
+ * Regex for validating atoms, compiled once upon first use.
+ */
+var regex = _.once(<span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return new RegExp(/^[a-z]+[-a-z0-9]*$/);</span>
+&nbsp;
+});
+&nbsp;
+/*
+ * Validate an atom.
+ */
+var isValidAtom = <span class="fstat-no" title="function not covered" >function(atom) {</span>
+&nbsp;
+  // Test atom against regex.
+<span class="cstat-no" title="statement not covered" >  return regex().test(atom);</span>
+&nbsp;
+};
+&nbsp;
+/*
+ * Valid property names of a container name object.
+ */
+var validKeys = [
+ 'kind',
+ 'app',
+ 'name'
+];
+&nbsp;
+/*
+ * Validate container name object.
+ */
+var invariant = <span class="fstat-no" title="function not covered" >function(o) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  _.each(o, <span class="fstat-no" title="function not covered" >function(val, key) {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!isValidAtom(val)) {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error(</span>
+        util.format(
+          'Invalid name part "%s" of container name object "%s".', val, pp(o)
+        )
+      );
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!_.contains(validKeys, key)) {</span>
+      // Throw error if you find an invalid object property.
+<span class="cstat-no" title="statement not covered" >      throw new Error(</span>
+        util.format(
+          'Invalid property %s of container name object %s.', key, pp(o)
+        )
+      );
+    }
+&nbsp;
+  });
+&nbsp;
+};
+&nbsp;
+/*
+ * Create a app container name.
+ */
+var create = <span class="fstat-no" title="function not covered" >function(appName, name) {</span>
+&nbsp;
+  // Build object.
+<span class="cstat-no" title="statement not covered" >  var o = {</span>
+    kind: APP_KIND,
+    app: appName,
+    name: name
+  };
+&nbsp;
+  // Validate.
+<span class="cstat-no" title="statement not covered" >  invariant(o);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return o;</span>
+&nbsp;
+};
+&nbsp;
+/*
+ * Create a service container name.
+ */
+var createService = <span class="fstat-no" title="function not covered" >function(name) {</span>
+&nbsp;
+  // Build object.
+<span class="cstat-no" title="statement not covered" >  var o = {</span>
+    kind: SERVICE_KIND,
+    name: name
+  };
+&nbsp;
+  // Validate.
+<span class="cstat-no" title="statement not covered" >  invariant(o);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return o;</span>
+&nbsp;
+};
+&nbsp;
+/*
+ * Create a temp container name.
+ */
+var createTemp = <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var name = ['temp', uuid.v4()].join('-');</span>
+<span class="cstat-no" title="statement not covered" >  return createService(name);</span>
+&nbsp;
+};
+&nbsp;
+/*
+ * Parse a string to a container name object.
+ */
+var parse = <span class="fstat-no" title="function not covered" >function(s) {</span>
+&nbsp;
+  // Remove any extra fluff.
+<span class="cstat-no" title="statement not covered" >  if (_.head(s) === '/' || _.head(s) === ' ') {</span>
+<span class="cstat-no" title="statement not covered" >    s = s.slice(1);</span>
+  }
+&nbsp;
+  // Split string.
+<span class="cstat-no" title="statement not covered" >  var parts = s.split(SEPARATOR);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (parts.length === 2 &amp;&amp; parts[0] === SERVICE_PREFIX) {</span>
+&nbsp;
+    // This is a service container.
+<span class="cstat-no" title="statement not covered" >    return createService(parts[1]);</span>
+&nbsp;
+  } else <span class="cstat-no" title="statement not covered" >if (parts.length === 3 &amp;&amp; parts[0] === APP_PREFIX) {</span>
+&nbsp;
+    // This is a user container.
+<span class="cstat-no" title="statement not covered" >    return create(parts[1], parts[2]);</span>
+&nbsp;
+  } else {
+&nbsp;
+    // Throw an error.
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid container name: ' + s);</span>
+&nbsp;
+  }
+&nbsp;
+};
+&nbsp;
+/*
+ * Take object and return prefix.
+ */
+var mapToPrefix = <span class="fstat-no" title="function not covered" >function(o) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (o.kind === SERVICE_KIND) {</span>
+<span class="cstat-no" title="statement not covered" >    return SERVICE_PREFIX;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (o.kind === APP_KIND) {</span>
+<span class="cstat-no" title="statement not covered" >    return APP_PREFIX;</span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    assert(false);</span>
+  }
+&nbsp;
+};
+&nbsp;
+/*
+ * Take container name object and format to a string.
+ */
+var format = <span class="fstat-no" title="function not covered" >function(o) {</span>
+&nbsp;
+  // Validate.
+<span class="cstat-no" title="statement not covered" >  invariant(o);</span>
+&nbsp;
+  // Get parts.
+<span class="cstat-no" title="statement not covered" >  var parts = [</span>
+    mapToPrefix(o),
+    o.app,
+    o.name
+  ];
+&nbsp;
+  // Filter out nulls and undefineds.
+<span class="cstat-no" title="statement not covered" >  parts = _.filter(parts, _.identity);</span>
+&nbsp;
+  // Format into a string.
+<span class="cstat-no" title="statement not covered" >  return parts.join(SEPARATOR);</span>
+&nbsp;
+};
+&nbsp;
+module.exports = {
+  create: create,
+  createService: createService,
+  createTemp: createTemp,
+  format: format,
+  parse: parse
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 24 2015 22:11:26 GMT+0000 (UTC)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

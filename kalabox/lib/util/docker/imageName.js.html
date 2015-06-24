@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/util/docker/imageName.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">lib/util/docker/imageName.js</span></h1>
+    <h2>
+        Statements: <span class="metric">22.64% <small>(12 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">22.64% <small>(12 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">lib/util/docker/</a> &#187; imageName.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var USER_SEP = '/';
+var TAG_SEP = ':';
+var VALID_KEYS = ['user', 'repo', 'tag'];
+&nbsp;
+var _ = require('lodash');
+var core = require('../../core.js');
+var version = require('../version.js');
+var util = require('util');
+var pp = util.inspect;
+&nbsp;
+/*
+ * Parse a docker image name to an object.. "user/repo:tag"
+ */
+var parse = <span class="fstat-no" title="function not covered" >function(s) {</span>
+&nbsp;
+  // Validate input is a string.
+<span class="cstat-no" title="statement not covered" >  if (typeof s !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid image name: ' + s);</span>
+  }
+&nbsp;
+  // Split by user separator.
+<span class="cstat-no" title="statement not covered" >  var parts = s.split(USER_SEP);</span>
+&nbsp;
+  // Init object.
+<span class="cstat-no" title="statement not covered" >  var o = {</span>
+    user: undefined,
+    repo: undefined,
+    tag: undefined
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (parts.length === 1) {</span>
+&nbsp;
+    // Just repo, no user.
+<span class="cstat-no" title="statement not covered" >    o.repo = parts[0];</span>
+&nbsp;
+  } else <span class="cstat-no" title="statement not covered" >if (parts.length === 2) {</span>
+&nbsp;
+    // User and repo.
+<span class="cstat-no" title="statement not covered" >    o.user = parts[0];</span>
+<span class="cstat-no" title="statement not covered" >    o.repo = parts[1];</span>
+&nbsp;
+  } else {
+&nbsp;
+    // This should never happen so throw an error.
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid image name: ' + s);</span>
+&nbsp;
+  }
+&nbsp;
+  // Split repo by tag separator.
+<span class="cstat-no" title="statement not covered" >  parts = o.repo.split(TAG_SEP);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (parts.length === 2) {</span>
+&nbsp;
+    // Repo and tag.
+<span class="cstat-no" title="statement not covered" >    o.repo = parts[0];</span>
+<span class="cstat-no" title="statement not covered" >    o.tag = parts[1];</span>
+&nbsp;
+  } else <span class="cstat-no" title="statement not covered" >if (parts.length &gt; 2) {</span>
+&nbsp;
+    // This should never happen so throw an error.
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid image name: ' + s);</span>
+&nbsp;
+  }
+&nbsp;
+  // Return.
+<span class="cstat-no" title="statement not covered" >  return o;</span>
+&nbsp;
+};
+&nbsp;
+/*
+ * Take a docker image object and format it as a string.
+ */
+var format = <span class="fstat-no" title="function not covered" >function(o) {</span>
+&nbsp;
+  // Validate object.
+<span class="cstat-no" title="statement not covered" >  if (!o || typeof o !== 'object') {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid image object: ' + o);</span>
+  }
+&nbsp;
+  // Validate object has only valid properties.
+<span class="cstat-no" title="statement not covered" >  _.each(o, <span class="fstat-no" title="function not covered" >function(val, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!_.contains(VALID_KEYS, key)) {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error(util.format(</span>
+        'Invalid property "%s" in image object: %s',
+        key,
+        pp(o)
+      ));
+    }
+<span class="cstat-no" title="statement not covered" >    if (val &amp;&amp; typeof val !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error(util.format(</span>
+        'Invalid property value "%s" in image object: %s',
+        val,
+        pp(o)
+      ));
+    }
+  });
+&nbsp;
+  // Validate we at least have a repo;
+<span class="cstat-no" title="statement not covered" >  if (!o.repo) {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid image repo: ' + o);</span>
+  }
+&nbsp;
+  // Start out as repo.
+<span class="cstat-no" title="statement not covered" >  var s = o.repo;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (o.user) {</span>
+    // Prepend user.
+<span class="cstat-no" title="statement not covered" >    s = [o.user, s].join(USER_SEP);</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (o.tag) {</span>
+    // Append tag.
+<span class="cstat-no" title="statement not covered" >    s = [s, o.tag].join(TAG_SEP);</span>
+  }
+&nbsp;
+  // Return.
+<span class="cstat-no" title="statement not covered" >  return s;</span>
+&nbsp;
+};
+&nbsp;
+/*
+ * Ensure image name has a user and a version tag.
+ */
+var expand = <span class="fstat-no" title="function not covered" >function(imageName) {</span>
+&nbsp;
+  // Parse string to object.
+<span class="cstat-no" title="statement not covered" >  var o = parse(imageName);</span>
+&nbsp;
+  // Get docker registry user from global config.
+<span class="cstat-no" title="statement not covered" >  var dockerRegistryUser = core.deps.get('globalConfig').engineRepo;</span>
+&nbsp;
+  // Make sure user is set.
+<span class="cstat-no" title="statement not covered" >  if (!o.user) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!dockerRegistryUser) {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error('Invalid globalConfig.engineRepo: ' +</span>
+        pp(dockerRegistryUser));
+    }
+<span class="cstat-no" title="statement not covered" >    o.user = dockerRegistryUser;</span>
+  }
+&nbsp;
+  // Make sure tag is set.
+<span class="cstat-no" title="statement not covered" >  if (!o.tag &amp;&amp; o.user === dockerRegistryUser) {</span>
+<span class="cstat-no" title="statement not covered" >    o.tag = 'v' + version.truncatePatch(version.get());</span>
+  }
+&nbsp;
+  // Format object to string.
+<span class="cstat-no" title="statement not covered" >  return format(o);</span>
+&nbsp;
+};
+&nbsp;
+module.exports = {
+  expand: expand,
+  format: format,
+  parse: parse
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 24 2015 22:11:26 GMT+0000 (UTC)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
