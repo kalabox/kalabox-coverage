@@ -15,10 +15,10 @@
 <div class="header low">
     <h1>Code coverage report for <span class="entity">lib/share/sync/syncRest.js</span></h1>
     <h2>
-        Statements: <span class="metric">18.46% <small>(12 / 65)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">19.12% <small>(13 / 68)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">0% <small>(0 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Functions: <span class="metric">0% <small>(0 / 35)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">18.46% <small>(12 / 65)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">19.12% <small>(13 / 68)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">lib/share/sync/</a> &#187; syncRest.js</div>
@@ -254,7 +254,17 @@
 227
 228
 229
-230</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -283,26 +293,9 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -313,6 +306,33 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -507,6 +527,11 @@ var _headers = {
 };
 &nbsp;
 /*
+ * Logging functions.
+ */
+var log = core.log.make('SYNC-REST');
+&nbsp;
+/*
  * Common request function.
  */
 var request = <span class="fstat-no" title="function not covered" >function(action, address, verb, data) {</span>
@@ -523,6 +548,9 @@ var request = <span class="fstat-no" title="function not covered" >function(acti
 &nbsp;
   // Build URL.
 <span class="cstat-no" title="statement not covered" >  var url = address + '/rest/' + verb;</span>
+&nbsp;
+  // Log REST request.
+<span class="cstat-no" title="statement not covered" >  log.debug([action, url].join(':'), data);</span>
 &nbsp;
   // Get request.
 <span class="cstat-no" title="statement not covered" >  return Promise.try(<span class="fstat-no" title="function not covered" >function() {</span></span>
@@ -542,6 +570,8 @@ var request = <span class="fstat-no" title="function not covered" >function(acti
 <span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >function(fulfill, reject) {</span></span>
 <span class="cstat-no" title="statement not covered" >      req</span>
       .on('success', <span class="fstat-no" title="function not covered" >function(data) {</span>
+        // Log response.
+<span class="cstat-no" title="statement not covered" >        log.debug('Response.', data);</span>
 <span class="cstat-no" title="statement not covered" >        fulfill(data);</span>
       })
       .on('fail', <span class="fstat-no" title="function not covered" >function(data) {</span>
@@ -717,7 +747,7 @@ module.exports = api;
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jul 11 2015 04:20:52 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jul 18 2015 15:38:18 GMT+0000 (UTC)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

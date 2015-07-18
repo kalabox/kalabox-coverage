@@ -15,10 +15,10 @@
 <div class="header low">
     <h1>Code coverage report for <span class="entity">lib/share/sync/sync.js</span></h1>
     <h2>
-        Statements: <span class="metric">31.09% <small>(37 / 119)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">30.71% <small>(39 / 127)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">0% <small>(0 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">31.09% <small>(37 / 119)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">30.71% <small>(39 / 127)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">lib/share/sync/</a> &#187; sync.js</div>
@@ -438,7 +438,45 @@
 411
 412
 413
-414</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -616,7 +654,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -624,6 +668,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1029,7 +1105,13 @@ Sync.prototype.clear = <span class="fstat-no" title="function not covered" >func
 <span class="cstat-no" title="statement not covered" >  return self.getConfig()</span>
   // Set list of devices and list of folders to an empty list.
   .then(<span class="fstat-no" title="function not covered" >function(config) {</span>
-<span class="cstat-no" title="statement not covered" >    config.devices = [];</span>
+    /*
+     * Removing the clearing of devices and folders to fix bug where
+     * restarting or starting after a change to a file was causing
+     * syncthing conflicts. This needs to be revisited in the near
+     * future, but for now is an elegant solution.
+     */
+    //config.devices = [];
 <span class="cstat-no" title="statement not covered" >    config.folders = [];</span>
 <span class="cstat-no" title="statement not covered" >    return config;</span>
   })
@@ -1037,6 +1119,38 @@ Sync.prototype.clear = <span class="fstat-no" title="function not covered" >func
   .then(<span class="fstat-no" title="function not covered" >function(config) {</span>
 <span class="cstat-no" title="statement not covered" >    return self.setConfig(config);</span>
   });
+&nbsp;
+};
+&nbsp;
+/*
+ * Clear folder with a given id.
+ */
+Sync.prototype.clearFolder = <span class="fstat-no" title="function not covered" >function(id) {</span>
+&nbsp;
+  // Save for later.
+<span class="cstat-no" title="statement not covered" >  var self = this;</span>
+&nbsp;
+  // Get syncthing instance's config.
+<span class="cstat-no" title="statement not covered" >  return self.getConfig()</span>
+  // Filter list of folders to remote folder with id of id.
+  .then(<span class="fstat-no" title="function not covered" >function(config) {</span>
+<span class="cstat-no" title="statement not covered" >    config.folders = _.filter(config.folders, <span class="fstat-no" title="function not covered" >function(folder) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return folder.id !== id;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    return config;</span>
+  })
+  // Update syncthing instance's config.
+  .then(<span class="fstat-no" title="function not covered" >function(config) {</span>
+<span class="cstat-no" title="statement not covered" >    return self.setConfig(config);</span>
+  });
+};
+&nbsp;
+/*
+ * Returns true if a given folder exists.
+ */
+Sync.prototype.hasFolder = <span class="fstat-no" title="function not covered" >function(config, id) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return _.contains(config.folder, id);</span>
 &nbsp;
 };
 &nbsp;
@@ -1269,7 +1383,7 @@ module.exports = Sync;
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jul 11 2015 04:20:52 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jul 18 2015 15:38:18 GMT+0000 (UTC)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>
